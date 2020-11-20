@@ -1,4 +1,5 @@
 <div align="center">
+  <br><br>
   <img src="/Assets/currency_logo.svg" alt="Currency_logo" width="260">
   <br>
   <h4>Versione attuale: 0.1.0</h4><br>
@@ -8,7 +9,7 @@
     <a href="#guida">Guida per l'uso</a>&nbsp•
     <a href="#javadoc">Javadoc</a>&nbsp•
     <a href="#riconoscimenti">Riconoscimenti</a> 
-  </p><br>
+  </p>
 </div><br><br>
 
 ## Introduzione <a name="intro"></a>
