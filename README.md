@@ -1,5 +1,6 @@
 <div align="center">
   <img src="/Assets/currency_logo.svg" alt="Currency_logo" width="260">
+  <br>
   <h4>Versione attuale: 0.1.0</h4><br>
   <p>
     <a href="#intro">Introduzione</a>&nbsp•
@@ -10,15 +11,15 @@
   </p><br>
 </div><br><br>
 
-## <a name="intro">Introduzione</a>
-## <a name="realizzazione">Realizzazione</a>
+## Introduzione <a name="intro"></a>
+## Realizzazione <a name="realizzazione"></a>
 > Vai al paragrafo : <a href="#modellazione">Modellazione dati</a> | <a href="#uml">Diagrammi UML</a>
 ### Sviluppo
 ### Modellazione dati <a name="modellazione">
 ### Diagrammi UML <a name="uml">
-## <a name="guida">Guida per l'uso</a>
+## Guida per l'uso<a name="guida"></a>
 > Vai al paragrafo: <a href="#endpoints">Endpoints</a>
 ### Compilazione e primo avvio 
 ### Endpoints <a name="endpoints"></a>
-## <a name="riconoscimenti">Riconoscimenti</a>
+## Riconoscimenti <a name="riconoscimenti"></a>
 Questo progetto è stato realizzato interamente da Michele Bevilacqua.
