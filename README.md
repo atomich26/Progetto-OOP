@@ -2,7 +2,7 @@
   <br><br>
   <img src="/Assets/currency_logo.svg" alt="Currency_logo" width="260">
   <br>
-  <h4>Versione attuale: 0.1.0</h4><br>
+  <h4>Versione attuale: 0.1.1</h4><br>
   <p>
     <a href="#intro">Introduzione</a>&nbsp•
     <a href="#realizzazione">Realizzazione</a>&nbsp•
@@ -23,4 +23,4 @@
 ### Compilazione e primo avvio 
 ### Endpoints <a name="endpoints"></a>
 ## Riconoscimenti <a name="riconoscimenti"></a>
-Questo progetto è stato realizzato interamente da Michele Bevilacqua.
+Questo progetto è stato realizzato da <a hrefMichele Bevilacqua.
