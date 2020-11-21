@@ -23,4 +23,4 @@
 ### Compilazione e primo avvio 
 ### Endpoints <a name="endpoints"></a>
 ## Riconoscimenti <a name="riconoscimenti"></a>
-Questo progetto è stato realizzato da <a hrefMichele Bevilacqua.
+Questo progetto è stato realizzato da <a href="https://www.linkedin.com/in/michele-bevilacqua-732611183/">Michele Bevilacqua</a>.
