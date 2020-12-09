@@ -1,16 +1,13 @@
 {
-    "access_key": "EC3HO3LGIHUMW4YT",
-    "currencies": [
-        "EUR",
-        "JPY",
-        "GBP",
-        "AUD",
-        "CAD",
-        "CHF",
-        "CNY",
-        "HKD",
-        "NZD",
-        "SEK",
-        "KRW"
-    ]
+    "currencies":{
+        "USD" : "United States dollar",
+        "EUR" : "Euro",
+        "JPY" : "Japanese yen",
+        "GBP" : "Great Britain pound",
+        "AUD" : "Australian dollar",
+        "CAD" : "Canadian dollar",
+        "CHF" : "Swiss franc",
+        "CNH" : "Renminbi",
+        "SEK" : "Swedish krona"
+    }
 }
