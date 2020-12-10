@@ -16,7 +16,7 @@ import it.michdev.restwebservice.utils.json.JsonHelper;
 /**
  * <b>ApplicationAssets</b> costituisce un componente gestito per l'applicazione
  * Spring. Questa classe s'interfaccia con i dati contenuti nei file di risorse, quali:
- * <i>assets.json</i>, <i>config.json</i>, <i>metadata.json</i>.
+ * <i>currencies.json</i>, <i>config.json</i>, <i>metadata.json</i>.
  * 
  * @version 0.2.5
  * @since 0.2.5
@@ -32,10 +32,9 @@ public class AssetsManager {
     public static void initAssets() {
         try {
             accessKey = JsonHelper.readFieldValue(ResourceUtils.getFile("classpath:config.json"), "access_key");
-            TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {
-            };
-            currenciesList = JsonHelper.deserialize(ResourceUtils.getFile("classpath:assets.json"), typeRef);
             metadata = JsonHelper.readNode(ResourceUtils.getFile("metadata.json"));
+            TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
+            currenciesList = JsonHelper.deserialize(ResourceUtils.getFile("classpath:currencies.json"), typeRef);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
