@@ -3,12 +3,11 @@ package it.michdev.restwebservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
 /**
  * Classe principale dell'applicazione Java. Contiene al suo interno il metodo
  * main per l'avvio del software.
  * 
- * @version 0.1.1
+ * @version 0.2.1
  * @since 0.1.0
  * @author Michele Bevilacqua
  */
