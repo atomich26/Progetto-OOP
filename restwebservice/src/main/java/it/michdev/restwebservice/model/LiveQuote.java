@@ -27,20 +27,12 @@ public class LiveQuote extends CurrencyPair {
     public Double getUpdatedValue() {
         return this.updatedValue;
     }
-
-    public void setUpdatedValue(Double updatedValue) {
-        this.updatedValue = updatedValue;
-    }
     
     @JsonProperty("previous")
     public Double getpreviousValue() {
         return this.previousValue;
     }
 
-    public void setpreviousValue(Double previousValue) {
-        this.previousValue = previousValue;
-    }
-    
     @JsonProperty("change")
     public Double getChangeValue() {
         return this.changeValue;
