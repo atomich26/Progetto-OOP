@@ -1,0 +1,29 @@
+{
+    "livequote" : [
+        {
+            "alias": "currency",
+            "content": "Codice ISO 4217 della coppia di valute.",
+            "type": "string"
+        },
+        {
+            "alias": "last",
+            "content": "Valore del tasso di cambio aggiornato ogni 10 minuti.",
+            "type": "double"
+        },
+        {
+            "alias": "previous",
+            "content": "Valore precedente del tasso di cambio.",
+            "type": "double"
+        },
+        {
+            "alias": "change",
+            "content": "Differenza tra il valore aggiornato e quello precedente.",
+            "type": "double"
+        },
+        {
+            "alias": "pct_change",
+            "content": "Variazione percentuale tra il valore aggiornato e quello precedente.",
+            "type": "double"
+        }
+    ]
+}
