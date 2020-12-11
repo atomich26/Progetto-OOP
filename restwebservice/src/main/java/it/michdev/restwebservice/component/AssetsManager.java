@@ -1,17 +1,13 @@
 package it.michdev.restwebservice.component;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-import it.michdev.restwebservice.utils.json.JsonHelper;
+
+import it.michdev.restwebservice.utils.parser.JsonParser;
 
 /**
  * <b>ApplicationAssets</b> costituisce un componente gestito per l'applicazione
@@ -31,21 +27,30 @@ public class AssetsManager {
 
     public static void initAssets() {
         try {
-            accessKey = JsonHelper.readFieldValue(ResourceUtils.getFile("classpath:config.json"), "access_key");
-            metadata = JsonHelper.readNode(ResourceUtils.getFile("metadata.json"));
+            accessKey = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:config.json"), "access_key");
+            metadata = JsonParser.readNode(ResourceUtils.getFile("classpath:metadata.json"));
             TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
-            currenciesList = JsonHelper.deserialize(ResourceUtils.getFile("classpath:currencies.json"), typeRef);
+            currenciesList = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:currencies.json"), "currencies" ,typeRef);
         } catch (FileNotFoundException e) {
+         
             e.printStackTrace();
         }
+        /*try {
+            accessKey = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:config.json"), "access_key");
+            metadata = JsonParser.readNode(ResourceUtils.getFile("metadata.json"));
+            TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
+            currenciesList = JsonParser.deserialize(ResourceUtils.getFile("classpath:currencies.json"), typeRef);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
     }
 
     public static String getAccessKey() {
         return accessKey;
     }
 
-    public static String getMetadata(String pathName) {
-        return metadata.get(pathName).toString();
+    public static JsonNode getMetadata() {
+        return metadata;
     }
 
     public static HashMap<String, String> getCurrenciesList() {

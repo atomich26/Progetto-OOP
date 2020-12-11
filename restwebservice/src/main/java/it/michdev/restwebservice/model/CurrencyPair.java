@@ -12,9 +12,9 @@ public class CurrencyPair {
 
     private String baseCurrency, quoteCurrency;
 
-    public CurrencyPair(String baseCurrency, String quoteCurrency) {
-        this.baseCurrency = baseCurrency;
-        this.quoteCurrency = quoteCurrency;
+    public CurrencyPair(String currencyPairCode) {
+        this.baseCurrency = currencyPairCode.substring(0, 3);
+        this.quoteCurrency = currencyPairCode.substring(3);
     }
 
     @JsonIgnore
@@ -37,6 +37,6 @@ public class CurrencyPair {
 
     @JsonProperty("currency")
     public String getCurrencyPair() {
-        return this.baseCurrency + "/" + this.quoteCurrency;
+        return this.baseCurrency + this.quoteCurrency;
     }
 }

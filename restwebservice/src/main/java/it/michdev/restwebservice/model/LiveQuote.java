@@ -15,8 +15,8 @@ public class LiveQuote extends CurrencyPair {
 
     Double updatedValue, previousValue, changeValue, pctChange;
 
-    public LiveQuote(String baseCurrency, String quoteCurrency, Double updateValue, Double previousValue) {
-        super(baseCurrency, quoteCurrency);
+    public LiveQuote(String currencyPairCode, Double updateValue, Double previousValue) {
+        super(currencyPairCode);
         this.updatedValue = updateValue;
         this.previousValue = previousValue;
         this.pctChange = StatisticalIndex.percentageChange(previousValue, updateValue);

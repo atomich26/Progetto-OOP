@@ -4,8 +4,8 @@ public class HistoricalQuote extends CurrencyPair {
     
     private Double highValue, lowValue, openValue, closeValue;
     
-    public HistoricalQuote(String baseCurrency, String quoteCurrency) {
-        super(baseCurrency, quoteCurrency);
+    public HistoricalQuote(String currencyPairCode) {
+        super(currencyPairCode);
     }
 
     public Double getHighValue() {
