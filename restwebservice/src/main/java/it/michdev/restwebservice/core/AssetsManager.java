@@ -1,4 +1,4 @@
-package it.michdev.restwebservice.component;
+package it.michdev.restwebservice.core;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
  * @author Michele Bevilacqua
  */
 @Component
-public class AssetsManager {
+public final class AssetsManager {
 
     private static String accessKey;
     private static JsonNode metadata;
@@ -31,18 +31,9 @@ public class AssetsManager {
             metadata = JsonParser.readNode(ResourceUtils.getFile("classpath:metadata.json"));
             TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
             currenciesList = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:currencies.json"), "currencies" ,typeRef);
-        } catch (FileNotFoundException e) {
-         
+        } catch (FileNotFoundException e) {        
             e.printStackTrace();
         }
-        /*try {
-            accessKey = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:config.json"), "access_key");
-            metadata = JsonParser.readNode(ResourceUtils.getFile("metadata.json"));
-            TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
-            currenciesList = JsonParser.deserialize(ResourceUtils.getFile("classpath:currencies.json"), typeRef);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }*/
     }
 
     public static String getAccessKey() {

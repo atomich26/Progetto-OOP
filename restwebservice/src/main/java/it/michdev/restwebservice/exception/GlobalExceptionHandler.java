@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * @see it.michdev.restwebservice.exception.ErrorResponse
  */
 @ControllerAdvice
-public class GlobalExceptionHandler {
+public final class GlobalExceptionHandler {
 
     /**
      * Questo metodo gestisce l'eccezione <code>IOException</code>.
