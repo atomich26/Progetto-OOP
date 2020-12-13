@@ -1,14 +1,11 @@
 {
     "currencies":{
         "AUD" : "Australian Dollar",
-        "BTC" : "Bitcoin cryptocurrency",
         "CAD" : "Canadian Dollar",
         "CHF" : "Swiss Franc",
-        "CNY" : "Chinese Yuan",
         "EUR" : "Euro",
         "GBP" : "Great Britain Pound",
         "JPY" : "Japanese Yen",
-        "SEK" : "Swedish Krona",
         "USD" : "United States Dollar"
     }
 }
