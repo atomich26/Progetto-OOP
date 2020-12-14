@@ -13,7 +13,7 @@ package it.michdev.restwebservice.exception;
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.component.GlobalExceptionHandler
  */
-public class InvalidBodyException extends Exception {
+public class IllegalDatePatternException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class InvalidBodyException extends Exception {
      * 
      * @param message descrizione dell'eccezione generata.
      */
-    public InvalidBodyException(String message) {
+    public IllegalDatePatternException(String message) {
         super(message);
     }
 }

@@ -32,7 +32,7 @@ public final class GlobalExceptionHandler {
     @ExceptionHandler({IOException.class, FileNotFoundException.class})
 
     public ResponseEntity<ErrorResponse> handleInternalServerException(Exception e) {
-        return new ResponseEntity<>(new ErrorResponse("Errore interno del server",
+        return new ResponseEntity<>(new ErrorResponse("InternalServerError",
                 "Si è verificato un errore interno del server. Contatta l'amministratore per ulteriori informazioni."),
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -47,8 +47,8 @@ public final class GlobalExceptionHandler {
     @ExceptionHandler(CurrencyNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleCurrencyNotFoundException(Exception e) {
         return new ResponseEntity<>(
-                new ErrorResponse("Valuta non trovata",
-                        "Impossibile richiedere dati per la valuta:" + e.getMessage() + ". Consulta la documentazione"),
+                new ErrorResponse("CurrencyNotFoundException",
+                        "Impossibile ottenere dati per la valuta:" + e.getMessage() + ". Consulta la documentazione"),
                 HttpStatus.BAD_REQUEST);
     }
 
@@ -61,7 +61,13 @@ public final class GlobalExceptionHandler {
      */
     @ExceptionHandler(InvalidPeriodException.class)
     public ResponseEntity<ErrorResponse> handleInvalidPeriodException(Exception e) {
-        return new ResponseEntity<>(new ErrorResponse("Data inserita non valida", e.getMessage()),
+        return new ResponseEntity<>(new ErrorResponse("InvalidPeriodException", e.getMessage()),
+                HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(IllegalDatePatternException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalDatePatternException(Exception e) {
+        return new ResponseEntity<>(new ErrorResponse("IllegalDatePatternException", e.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 }
