@@ -53,13 +53,4 @@ public class JsonParser {
             return null;
         } 
     }
-
-
-    public static <T> T deserialize(File fileSource, TypeReference<T> valueType) {
-        try {
-            return objMapper.readValue(fileSource, valueType);
-        } catch (IOException e) {
-            return null;
-        }
-    }
 }

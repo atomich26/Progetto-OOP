@@ -10,16 +10,16 @@ public class DateParser {
     
     public static SimpleDateFormat dateFormat = new SimpleDateFormat();
 
-    public static Calendar parseDate(String dateToParse, String pattern) throws InvalidPeriodException {
+    public static Calendar parseDate(String dateToParse) throws InvalidPeriodException {
         try {
-            dateFormat.applyPattern(pattern);
-            dateFormat.setLenient(false);
+            //dateFormat.setLenient(false);
+            dateFormat.applyPattern("yyyy-MM-dd");
             Calendar parsedDate = Calendar.getInstance();
             parsedDate.setTime(dateFormat.parse(dateToParse));
             return parsedDate;
-        }     
-        catch(ParseException e){
-            throw new InvalidPeriodException("Formato della data {" + dateToParse +"} non valido.");
+        } catch (ParseException e) {
+            throw new InvalidPeriodException(
+                    "Formato della data {" + dateToParse + "} non valido. Il pattern corretto è {yyyy-MM-dd}.");
         }
     }
 
