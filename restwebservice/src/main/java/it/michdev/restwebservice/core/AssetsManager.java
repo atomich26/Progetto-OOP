@@ -1,12 +1,9 @@
 package it.michdev.restwebservice.core;
 
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-
 import it.michdev.restwebservice.model.CurrenciesList;
 import it.michdev.restwebservice.utils.parser.JsonParser;
 
