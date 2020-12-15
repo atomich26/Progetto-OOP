@@ -1,42 +1,50 @@
 package it.michdev.restwebservice.model;
 
+import java.math.BigDecimal;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import it.michdev.restwebservice.utils.parser.DecimalParser;
+
 public class HistoricalQuote extends CurrencyPair {
     
-    private Double highValue, lowValue, openValue, closeValue;
+    private BigDecimal highValue, lowValue, openValue, closeValue;
     
     public HistoricalQuote(String currencyPairCode) {
         super(currencyPairCode);
     }
 
+    @JsonProperty("high")
     public Double getHighValue() {
-		return this.highValue;
+		return this.highValue.doubleValue();
 	}
 
     public void setHighValue(Double highValue) {
-        this.highValue = highValue;
+        this.highValue = DecimalParser.parseDouble(highValue);
     }
-    
+
+    @JsonProperty("low")
     public Double getLowValue() {
-		return this.lowValue;
+        return this.lowValue.doubleValue();
 	}
 
     public void setLowValue(Double lowValue) {
-        this.lowValue = lowValue;
+        this.lowValue = DecimalParser.parseDouble(lowValue);
     }
     
+    @JsonProperty("open")
     public Double getOpenValue() {
-		return this.openValue;
+		return this.openValue.doubleValue();
 	}
 
     public void setOpenValue(Double openValue) {
-        this.openValue = openValue;
+        this.openValue = DecimalParser.parseDouble(openValue);
     }
     
+    @JsonProperty("close")
     public Double getCloseValue() {
-		return this.closeValue;
+		return this.closeValue.doubleValue();
 	}
 
 	public void setCloseValue(Double closeValue) {
-		this.closeValue = closeValue;
+        this.closeValue = DecimalParser.parseDouble(closeValue);
     } 
 }
