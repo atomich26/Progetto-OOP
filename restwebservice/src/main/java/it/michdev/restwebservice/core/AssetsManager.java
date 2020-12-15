@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
+import it.michdev.restwebservice.model.CurrenciesList;
 import it.michdev.restwebservice.utils.parser.JsonParser;
 
 /**
@@ -23,14 +24,13 @@ public final class AssetsManager {
 
     private static String accessKey;
     private static JsonNode metadata;
-    private static HashMap<String, String> currenciesList = new HashMap<>();
-
+    private static CurrenciesList currenciesList;
+               
     public static void initAssets() {
         try {
-            accessKey = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:config.json"), "access_key");
+            accessKey = JsonParser.readNode(ResourceUtils.getFile("classpath:config.json")).get("access_key").asText();
             metadata = JsonParser.readNode(ResourceUtils.getFile("classpath:metadata.json"));
-            TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
-            currenciesList = JsonParser.readFieldValue(ResourceUtils.getFile("classpath:currencies.json"), "currencies" ,typeRef);
+            currenciesList = JsonParser.readNode(ResourceUtils.getFile("classpath:currencies.json"), CurrenciesList.class);
         } catch (FileNotFoundException e) {        
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ public final class AssetsManager {
         return metadata;
     }
 
-    public static HashMap<String, String> getCurrenciesList() {
+    public static CurrenciesList getCurrenciesList() {
         return currenciesList;
     }
 }
