@@ -3,10 +3,10 @@ package it.michdev.restwebservice.utils.adapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.model.QuoteSeries;
+import it.michdev.restwebservice.utils.parser.JsonParser;
 
 public class LiveDataAdapter implements IDataAdapter<LiveQuote>{
 
@@ -20,17 +20,17 @@ public class LiveDataAdapter implements IDataAdapter<LiveQuote>{
     @Override
     public ArrayList<LiveQuote> createList() {
         ArrayList<LiveQuote> liveQuoteArrayList = new ArrayList<>();
-        TypeReference<HashMap<String, Double>> typeRef = new TypeReference<HashMap<String, Double>>() {
+        TypeReference<HashMap<String, Double>> mapTypeRef = new TypeReference<HashMap<String, Double>>() {
         };
-        HashMap<String, Double> liveQuoteList = new HashMap<>();
-        liveQuoteList = JsonParser.readFieldValue(liveQuoteResponse,"price", typeRef);
+        HashMap<String, Double> liveQuoteMap = new HashMap<>();
+        liveQuoteMap = JsonParser.deserialize(liveQuoteResponse, "price", mapTypeRef);
 
-        HashMap<String, Double> previousQuoteList = new HashMap<>();
-        previousQuoteList = JsonParser.readFieldValue(previousQuoteResponse,"price", typeRef);
+        HashMap<String, Double> previousQuoteMap = new HashMap<>();
+        previousQuoteMap = JsonParser.deserialize(previousQuoteResponse,"price", mapTypeRef);
 
-        for (Map.Entry<String, Double> entry : liveQuoteList.entrySet()) {
+        for (Map.Entry<String, Double> entry : liveQuoteMap.entrySet()) {
             LiveQuote newLiveQuote = new LiveQuote(entry.getKey(), entry.getValue(),
-                    previousQuoteList.get(entry.getKey()));
+                    previousQuoteMap.get(entry.getKey()));
             liveQuoteArrayList.add(newLiveQuote);
         } 
         return liveQuoteArrayList;
