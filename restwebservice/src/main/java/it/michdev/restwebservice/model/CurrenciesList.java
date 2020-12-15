@@ -2,7 +2,9 @@ package it.michdev.restwebservice.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CurrenciesList {
@@ -12,25 +14,27 @@ public class CurrenciesList {
 
     public CurrenciesList(@JsonProperty("currencies") HashMap<String, String> currenciesMap) {
         this.currenciesMap = currenciesMap;
-     
+        createCurranciesPairs();
     }
 
     @JsonProperty("currencies")
     public HashMap<String, String> getCurrenciesMap() {
         return this.currenciesMap;
     }
+    
+    public String getCurrenciesPairsQuery() {
+        return this.currenciesPairsQuery;
+    }
 
-    @JsonInclude
+    @JsonIgnore
     private void createCurranciesPairs() {
+        ArrayList<String> currenciesPairsList = new ArrayList<String>();
         for (String baseCurrencyString : currenciesMap.keySet()) {
             for (String quoteCurrencyString : currenciesMap.keySet()) {
                 if (baseCurrencyString != quoteCurrencyString)
-                    currenciesPairsQuery.concat(baseCurrencyString + )
+                    currenciesPairsList.add(baseCurrencyString + quoteCurrencyString);
             }
         }
-        
-        for (String string : currenciesPairsList) {
-            
-        }
+        this.currenciesPairsQuery = currenciesPairsList.stream().collect(Collectors.joining(","));
     }
 }
