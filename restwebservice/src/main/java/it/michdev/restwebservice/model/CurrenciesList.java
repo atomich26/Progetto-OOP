@@ -3,10 +3,12 @@ package it.michdev.restwebservice.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author Michele Bevilacqua
+ */
 public class CurrenciesList {
 
     private String currenciesPairsQuery;
@@ -22,6 +24,7 @@ public class CurrenciesList {
         return this.currenciesMap;
     }
     
+    @JsonIgnore
     public String getCurrenciesPairsQuery() {
         return this.currenciesPairsQuery;
     }
