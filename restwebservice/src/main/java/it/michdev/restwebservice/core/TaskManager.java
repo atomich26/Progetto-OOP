@@ -3,7 +3,6 @@ package it.michdev.restwebservice.core;
 import javax.annotation.PostConstruct;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import it.michdev.restwebservice.service.DataService;
 
 /** 
@@ -19,7 +18,7 @@ public final class TaskManager {
         System.out.println("$--> Dataset created");
     }
 
-    @Scheduled(fixedRate = 600000)
+    @Scheduled(initialDelay = 600000, fixedRate = 600000)
     public static void doUpdateDataTask() {
         DataService.updateDataSet();
         System.out.println("$--> Updated live quote");
