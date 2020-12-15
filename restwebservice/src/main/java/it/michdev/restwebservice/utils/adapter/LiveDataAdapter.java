@@ -3,14 +3,22 @@ package it.michdev.restwebservice.utils.adapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
-import it.michdev.restwebservice.model.DataPoint;
 import it.michdev.restwebservice.model.LiveQuote;
-import it.michdev.restwebservice.utils.parser.JsonParser;
+import it.michdev.restwebservice.model.QuoteSeries;
 
-public class DataAdapter {
+public class LiveDataAdapter implements IDataAdapter<LiveQuote>{
 
-    public static ArrayList<LiveQuote> createLiveQuoteList(String liveQuoteResponse, String previousQuoteResponse) {
+    private String liveQuoteResponse, previousQuoteResponse;
+
+    public LiveDataAdapter(String liveQuoteResponse, String previousQuoteResponse) {
+        this.liveQuoteResponse = liveQuoteResponse;
+        this.previousQuoteResponse = previousQuoteResponse;
+    }
+
+    @Override
+    public ArrayList<LiveQuote> createList() {
         ArrayList<LiveQuote> liveQuoteArrayList = new ArrayList<>();
         TypeReference<HashMap<String, Double>> typeRef = new TypeReference<HashMap<String, Double>>() {
         };
@@ -26,9 +34,5 @@ public class DataAdapter {
             liveQuoteArrayList.add(newLiveQuote);
         } 
         return liveQuoteArrayList;
-    }
-
-    public static ArrayList<DataPoint> createHistoricalQuoteList(String historicalQuoteResponse) {
-        return null;
     }
 }

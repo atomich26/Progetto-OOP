@@ -28,18 +28,33 @@ public class JsonParser {
         }
     }
 
-    public static String readFieldValue(File fileSource, String fieldName) {
+    public static JsonNode readNode(String source) {
         try {
-            return objMapper.readTree(fileSource).get(fieldName).asText();
+            return objMapper.readTree(source);
         } catch (IOException e) {
             return null;
         }
     }
 
-    public static <T> T readFieldValue(File fileSource, String fieldName, TypeReference<T> valueType) {
+    public static <T> T readNode(String source, Class<T> valueType) {
         try {
-            JsonNode node = objMapper.readTree(fileSource);
-            return objMapper.readValue(node.get(fieldName).toString(), valueType);
+            return objMapper.readValue(source, valueType);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public static <T> T readNode(File fileSource, Class<T> valueType) {
+        try {
+            return objMapper.readValue(fileSource, valueType);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public static String readFieldValue(File fileSource, String fieldName) {
+        try {
+            return objMapper.readTree(fileSource).get(fieldName).asText();
         } catch (IOException e) {
             return null;
         }
