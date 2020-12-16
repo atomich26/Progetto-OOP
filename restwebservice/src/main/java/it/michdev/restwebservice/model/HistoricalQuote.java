@@ -2,8 +2,10 @@ package it.michdev.restwebservice.model;
 
 import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import it.michdev.restwebservice.utils.parser.DecimalParser;
 
+@JsonPropertyOrder({"open","high","low","close"})
 public class HistoricalQuote extends CurrencyPair {
     
     private BigDecimal highValue, lowValue, openValue, closeValue;
@@ -22,8 +24,8 @@ public class HistoricalQuote extends CurrencyPair {
     }
 
     @JsonProperty("low")
-    public Double getLowValue() {
-        return this.lowValue.doubleValue();
+    public BigDecimal getLowValue() {
+        return this.lowValue;
 	}
 
     public void setLowValue(Double lowValue) {
@@ -31,8 +33,8 @@ public class HistoricalQuote extends CurrencyPair {
     }
     
     @JsonProperty("open")
-    public Double getOpenValue() {
-		return this.openValue.doubleValue();
+    public BigDecimal getOpenValue() {
+        return this.openValue;
 	}
 
     public void setOpenValue(Double openValue) {
@@ -40,8 +42,8 @@ public class HistoricalQuote extends CurrencyPair {
     }
     
     @JsonProperty("close")
-    public Double getCloseValue() {
-		return this.closeValue.doubleValue();
+    public BigDecimal getCloseValue() {
+        return this.closeValue;
 	}
 
 	public void setCloseValue(Double closeValue) {

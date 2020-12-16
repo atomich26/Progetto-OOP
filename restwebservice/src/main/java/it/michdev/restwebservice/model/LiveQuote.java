@@ -27,23 +27,23 @@ public class LiveQuote extends CurrencyPair {
     }
     
     @JsonProperty("last")
-    public Double getUpdatedValue() {
-        return this.updatedValue.doubleValue();
+    public BigDecimal getUpdatedValue() {
+        return this.updatedValue;
     }
     
     @JsonProperty("previous")
-    public Double getPreviousValue() {
-        return this.previousValue.doubleValue();
+    public BigDecimal getPreviousValue() {
+        return this.previousValue;
     }
 
     @JsonProperty("change")
-    public Double getChangeValue() {
-        return this.changeValue.doubleValue();
+    public BigDecimal getChangeValue() {
+        return this.changeValue;
     }
 
     @JsonProperty("pct_change")
-    public Double getPctChange() {
-        return this.pctChange.doubleValue();
+    public BigDecimal getPctChange() {
+        return this.pctChange;
     }
 
     public void updateQuote(Double newValue) {
