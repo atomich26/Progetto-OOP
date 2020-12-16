@@ -47,8 +47,7 @@ public final class GlobalExceptionHandler {
     @ExceptionHandler(CurrencyNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleCurrencyNotFoundException(Exception e) {
         return new ResponseEntity<>(
-                new ErrorResponse("CurrencyNotFoundException",
-                        "Impossibile ottenere dati per la valuta:" + e.getMessage() + ". Consulta la documentazione"),
+                new ErrorResponse("CurrencyNotFoundException",e.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 
