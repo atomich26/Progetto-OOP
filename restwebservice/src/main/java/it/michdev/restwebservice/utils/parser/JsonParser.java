@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -53,11 +54,12 @@ public class JsonParser {
     }
 
     public static <T> T deserialize(String source, String fieldName, TypeReference<T> valueType) {
+        JsonNode node;
         try {
-            JsonNode node = objMapper.readTree(source);
+            node = objMapper.readTree(source);
             return objMapper.readValue(node.get(fieldName).toString(), valueType);
         } catch (JsonProcessingException e) {
             return null;
-        } 
+        }
     }
 }
