@@ -16,7 +16,7 @@ public class CurrenciesList {
 
     public CurrenciesList(@JsonProperty("currencies") HashMap<String, String> currenciesMap) {
         this.currenciesMap = currenciesMap;
-        createCurranciesPairs();
+        createCurrenciesPairs();
     }
 
     @JsonProperty("currencies")
@@ -30,7 +30,7 @@ public class CurrenciesList {
     }
 
     @JsonIgnore
-    private void createCurranciesPairs() {
+    private void createCurrenciesPairs() {
         ArrayList<String> currenciesPairsList = new ArrayList<String>();
         for (String baseCurrencyString : currenciesMap.keySet()) {
             for (String quoteCurrencyString : currenciesMap.keySet()) {
