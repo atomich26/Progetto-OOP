@@ -25,7 +25,7 @@ public class CurrencyFilter implements IFilter<String> {
     private void checkParams() throws CurrencyNotFoundException {
         if (!(baseCurrency.isEmpty())) {
             if (!AssetsManager.getCurrenciesList().getCurrenciesMap().containsKey(baseCurrency))
-                throw new CurrencyNotFoundException("La valuta {" + baseCurrency + "} inserita");
+                throw new CurrencyNotFoundException("La valuta {" + baseCurrency + "} inserita non è disponibile.");
         } else
             throw new CurrencyNotFoundException("Il valore del parametro {base} non può essere vuoto.");
 
@@ -34,8 +34,7 @@ public class CurrencyFilter implements IFilter<String> {
                 Predicate<String> predicate = (o -> AssetsManager.getCurrenciesList().getCurrenciesMap()
                         .containsKey(o));
                 if (!quoteCurrenciesList.stream().allMatch(predicate))
-                    throw new CurrencyNotFoundException(
-                            "Alcuni valute non sono disponibili. Consulta la documentazione.");
+                    throw new CurrencyNotFoundException("Alcuni valori del parametro {quotes} non sono accettabili. Consulta la documentazione.");
             } else {
                 throw new CurrencyNotFoundException(
                         "Il parametro {quotes} non può essere vuoto. Consulta la documentazione.");
