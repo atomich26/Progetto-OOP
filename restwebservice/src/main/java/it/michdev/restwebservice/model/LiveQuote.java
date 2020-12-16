@@ -1,10 +1,8 @@
 package it.michdev.restwebservice.model;
 
 import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import it.michdev.restwebservice.utils.parser.DecimalParser;
 import it.michdev.restwebservice.utils.stats.StatisticalIndex;
 
