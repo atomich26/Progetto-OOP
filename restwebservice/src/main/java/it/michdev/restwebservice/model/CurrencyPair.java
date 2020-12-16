@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CurrencyPair {
 
     private String baseCurrency, quoteCurrency;
-
+    
     public CurrencyPair(String currencyPairCode) {
         this.baseCurrency = currencyPairCode.substring(0, 3);
         this.quoteCurrency = currencyPairCode.substring(3);
