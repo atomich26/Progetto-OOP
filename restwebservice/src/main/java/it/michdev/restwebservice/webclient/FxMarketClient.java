@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import org.springframework.web.util.UriComponentsBuilder;
 import it.michdev.restwebservice.core.AssetsManager;
+import it.michdev.restwebservice.utils.filter.PeriodFilter;
 import it.michdev.restwebservice.utils.parser.DateParser;
-import it.michdev.restwebservice.utils.time.Period;
 
 public class FxMarketClient extends WebClient {
 
@@ -34,11 +34,11 @@ public class FxMarketClient extends WebClient {
         return downloadData(requestUri);
     }
 
-    public HttpResponse<String> requestData(Period filterPeriod, ArrayList<String> quoteCurrencies) {
+    public HttpResponse<String> requestData(PeriodFilter filterPeriod, ArrayList<String> quoteCurrencies) {
         requestUri = UriComponentsBuilder.fromUriString(endpoint).path("apitimeseries").queryParam("api_key", accessKey)
                 .queryParam("currency", currenciesPairsQuery)
-                .queryParam("start_date", DateParser.getDateAsString(filterPeriod.getStartDate(), DateParser.YYYYMMDD))
-                .queryParam("end_date", DateParser.getDateAsString(filterPeriod.getEndDate(), DateParser.YYYYMMDD))
+                .queryParam("start_date", DateParser.getDateAsString(filterPeriod.getParam().getStartDate(), DateParser.YYYYMMDD))
+                .queryParam("end_date", DateParser.getDateAsString(filterPeriod.getParam().getEndDate(), DateParser.YYYYMMDD))
                 .build().toUri();
         return downloadData(requestUri);
     }
