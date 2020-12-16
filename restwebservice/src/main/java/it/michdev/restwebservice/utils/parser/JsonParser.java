@@ -52,15 +52,7 @@ public class JsonParser {
         }
     }
 
-    public static String readFieldValue(File fileSource, String fieldName) {
-        try {
-            return objMapper.readTree(fileSource).get(fieldName).asText();
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public static <T> T readFieldValue(String source, String fieldName, TypeReference<T> valueType) {
+    public static <T> T deserialize(String source, String fieldName, TypeReference<T> valueType) {
         try {
             JsonNode node = objMapper.readTree(source);
             return objMapper.readValue(node.get(fieldName).toString(), valueType);

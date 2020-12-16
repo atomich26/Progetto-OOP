@@ -10,7 +10,7 @@ public class DecimalParser {
     
     public static BigDecimal parseDouble(Double value) {
         BigDecimal parsedDouble = new BigDecimal(value);
-        parsedDouble = parsedDouble.setScale(4, RoundingMode.HALF_EVEN);
+        parsedDouble = parsedDouble.setScale(5, RoundingMode.HALF_EVEN);
         return parsedDouble;
     }
 }
