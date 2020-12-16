@@ -24,7 +24,7 @@ public class DateParser {
             return parsedDate;
         } catch (ParseException e) {
             throw new IllegalDatePatternException(
-                    "Formato della data {" + dateToParse + "} non valido. Il pattern corretto è {yyyy-MM-dd}.");
+                    "Formato della data {" + dateToParse + "} non valido. Formato accettato: {yyyy-MM-dd}.");
         }
     }
 
