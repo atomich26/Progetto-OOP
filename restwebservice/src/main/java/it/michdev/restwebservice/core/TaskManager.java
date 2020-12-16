@@ -5,9 +5,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import it.michdev.restwebservice.service.DataService;
 
-/** 
-La classe <b>ScheduledTask</b>  
-*/
 @Component
 public final class TaskManager {
     
