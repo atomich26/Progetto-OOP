@@ -5,10 +5,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Calendar;
-import java.util.Vector;
-import org.springframework.web.util.UriComponentsBuilder;
-import it.michdev.restwebservice.core.AssetsManager;
 
 public abstract class WebClient {
 
