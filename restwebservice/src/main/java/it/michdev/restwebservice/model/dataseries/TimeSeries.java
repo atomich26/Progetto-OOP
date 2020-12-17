@@ -28,8 +28,8 @@ public class TimeSeries extends DataSeries<DataPoint> {
     }
 
     @JsonProperty("end_date")
-    public String getFinalDate() {
-        return DateParser.getDateAsString(timeSeriesPeriod.getStartDate(), DateParser.YYYYMMDD);
+    public String getEndDate() {
+        return DateParser.getDateAsString(timeSeriesPeriod.getEndDate(), DateParser.YYYYMMDD);
     }
 
     @Override
