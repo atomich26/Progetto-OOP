@@ -35,12 +35,8 @@ public class JsonParser {
         }
     }
 
-    public static <T> T readNode(String source, Class<T> valueType) {
-        try {
-            return objMapper.readValue(source, valueType);
-        } catch (IOException e) {
-            return null;
-        }
+    public static <T> T parseNode(String source, Class<T> valueType) throws JsonProcessingException {
+        return objMapper.readValue(source, valueType);
     }
 
     public static <T> T readNode(File fileSource, Class<T> valueType) {
@@ -51,7 +47,7 @@ public class JsonParser {
         }
     }
 
-    public static <T> T deserialize(String source, String fieldName, TypeReference<T> valueType) {
+    public static <T> T deserialize(String source, String fieldName, TypeReference<T> valueType){
         JsonNode node;
         try {
             node = objMapper.readTree(source);
