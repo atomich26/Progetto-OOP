@@ -5,12 +5,26 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import it.michdev.restwebservice.exception.IllegalDatePatternException;
 
+/**
+ * La classe <b>DateParser</b> è utilizzata per convertire stringhe di date in
+ * oggetti <code>Calendar</code> e viceversa.
+ * 
+ * @version 0.8.0
+ * @author Michele Bevilacqua
+ */
 public class DateParser {
 
     public static String YYYYMMDD = "yyyy-MM-dd";
     public static String YYYYMMDDHHmm = "yyyy-MM-dd-HH:mm";
     public static SimpleDateFormat dateFormat = new SimpleDateFormat();
 
+    /**
+     * Converte una stringa di una data in oggetto <code>Calendar</code>
+     * rappresentante la data stessa.
+     * 
+     * @param dateToParse stringa della data da convertire.
+     * @return <code>Calendar</code> della data passata come argomento.
+     */
     public static Calendar parseDate(String dateToParse) throws IllegalDatePatternException {
         try {
             dateFormat.setLenient(false);
@@ -28,6 +42,14 @@ public class DateParser {
         }
     }
 
+    /**
+     * Converte un oggetto <code>Calendar</code> in una <code>String</code> con il
+     * formato specificato come argomento.
+     * 
+     * @param dateToString <code>Calendar</code> da convertire.
+     * @param pattern      formato della data.
+     * @return stringa della data convertita.
+     */
     public static String getDateAsString(Calendar dateToString, String pattern) {
         dateFormat.applyPattern(pattern);
         return dateFormat.format(dateToString.getTime());
