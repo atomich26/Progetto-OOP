@@ -1,6 +1,5 @@
 package it.michdev.restwebservice.controller;
 
-import java.util.ArrayList;
 import java.util.Set;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.http.HttpStatus;
@@ -58,14 +57,16 @@ public final class RequestController {
 
     @RequestMapping(value = "/historical/currency", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<TimeSeries> requestHistoricalCurrency(@RequestParam("base") String baseCurrency,
-            @RequestBody String bodyRequest) throws InvalidPeriodException, IllegalDatePatternException {
+            @RequestBody String bodyRequest) throws InvalidPeriodException, IllegalDatePatternException,
+            CurrencyNotFoundException {
         return new ResponseEntity<>(DataService.getHistoricalSeries(baseCurrency, bodyRequest), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/historical/quotes", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<LiveQuote> requestHistoricalQuotes(@RequestParam("base") String baseCurrency,
-            @RequestParam("quotes") Set<String> quoteCurrencies, @RequestBody String bodyRequest) {
-        return new ResponseEntity<>(null, HttpStatus.OK);
+    public ResponseEntity<TimeSeries> requestHistoricalQuotes(@RequestParam("base") String baseCurrency,
+            @RequestParam("quotes") Set<String> quoteCurrencies, @RequestBody String bodyRequest)
+            throws CurrencyNotFoundException, InvalidPeriodException, IllegalDatePatternException {
+        return new ResponseEntity<>(DataService.getHistoricalSeries(baseCurrency, quoteCurrencies, bodyRequest), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/statistics/lastweeks", method = RequestMethod.GET, produces = "application/json")
