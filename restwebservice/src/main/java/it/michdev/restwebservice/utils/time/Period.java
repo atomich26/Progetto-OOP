@@ -26,12 +26,10 @@ public class Period implements ITime{
      * @throws IllegalDatePatternException eccezione generata quando il formato
      *                                     delle date inserite è errato.
      */
-    public Period(@JsonProperty("start_date") String startDate, @JsonProperty("end_date") String endDate)
+    public Period(@JsonProperty("start_date") String startDate,@JsonProperty("end_date") String endDate)
             throws InvalidPeriodException, IllegalDatePatternException {
         this.periodStartDate = DateParser.parseDate(startDate);
         this.periodEndDate = DateParser.parseDate(endDate);
-        if (periodStartDate.compareTo(this.periodEndDate) > 0)
-            throw new InvalidPeriodException("La data finale non può essere precedente alla data d'inizio.");
     }
 
     /**
@@ -69,10 +67,10 @@ public class Period implements ITime{
      */
     @Override
     public Integer compareTo(Calendar dateToCompare) {
-        if (dateToCompare.compareTo(periodStartDate) < 0)
-            return -1;
-        else if (dateToCompare.compareTo(periodEndDate) > 0)
+        if (periodStartDate.compareTo(dateToCompare) > 0)
             return 1;
+        else if (periodEndDate.compareTo(dateToCompare) < 0)
+            return -1;
         else
             return 0;
     }
