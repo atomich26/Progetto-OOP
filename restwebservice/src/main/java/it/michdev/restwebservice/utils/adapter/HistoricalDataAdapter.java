@@ -1,8 +1,6 @@
 package it.michdev.restwebservice.utils.adapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -12,15 +10,40 @@ import it.michdev.restwebservice.model.DataPoint;
 import it.michdev.restwebservice.model.HistoricalQuote;
 import it.michdev.restwebservice.utils.parser.JsonParser;
 
+/**
+ * La classe <b>HistoricalDataAdapter</b> è utilizzata per creare
+ * <code>ArrayList</code> di oggetti <code>DataPoint</code> dal parsing di dati
+ * grezzi, scaricati dal <code>webclient</code>. Implementa l'interfaccia
+ * <code>IDataAdapter</code>.
+ * 
+ * @version 0.8.0
+ * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.utils.adapter.IDataAdapter
+ * @see it.michdev.restwebservice.utils.adapter.HistoricalDataAdapter
+ */
 public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
 
     private String historicalResponse;
     private TypeReference<LinkedHashMap<String, LinkedHashMap<String, JsonNode>>> mapTypeRef;
 
+    /**
+     * Costruttore per la classe <code>HistoricalDataAdapter</code>.
+     * @param historicalResponse stringa <code>json</code> dei dati storici
+     *                              ottenuta dal webclient.
+     */
     public HistoricalDataAdapter(String historicalResponse) {
         this.historicalResponse = historicalResponse;
-        this.mapTypeRef = new TypeReference<LinkedHashMap<String, LinkedHashMap<String, JsonNode>>>() {};
+        this.mapTypeRef = new TypeReference<LinkedHashMap<String, LinkedHashMap<String, JsonNode>>>() {
+        };
     }
+
+    /**
+     * Il metodo <code>createList</code> crea oggetti <code>DataPoint</code>
+     * analizzando la stringa json ottenuta dal webclient e li aggiunge ad un
+     * <code>ArrayList</code>.
+     * 
+     * @return <code>ArrayList</code> di <code>DataPoint</code>
+     */
 
     @Override
     public ArrayList<DataPoint> createList() {

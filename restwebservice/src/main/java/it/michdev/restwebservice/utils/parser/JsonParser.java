@@ -13,8 +13,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * de/serializzazione dei dati formattati in file/stringhe <code>JSON</code>.
  * 
  * @version 0.8.0
- * @since 0.8.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.utils.parser.DecimalParser
+ * @see it.michdev.restwebservice.utils.parser.DateParser
  */
 public class JsonParser {
 

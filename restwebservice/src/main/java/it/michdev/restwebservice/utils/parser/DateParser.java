@@ -11,6 +11,8 @@ import it.michdev.restwebservice.exception.IllegalDatePatternException;
  * 
  * @version 0.8.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.utils.parser.DecimalParser
+ * @see it.michdev.restwebservice.utils.parser.JsonParser
  */
 public class DateParser {
 
