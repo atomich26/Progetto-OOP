@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.utils.parser.JsonParser;
 
@@ -23,15 +22,16 @@ public class LiveDataAdapter implements IDataAdapter<LiveQuote> {
     public ArrayList<LiveQuote> createList() {
         ArrayList<LiveQuote> liveQuoteArrayList = new ArrayList<>();
         HashMap<String, Double> liveQuoteMap = new HashMap<>();
+        HashMap<String, Double> previousQuoteMap = new HashMap<>();
+
         liveQuoteMap = JsonParser.deserialize(lastQuoteResponse, "price", mapTypeRef);
-		HashMap<String, Double> previousQuoteMap = new HashMap<>();
-		previousQuoteMap = JsonParser.deserialize(previousQuoteResponse, "price", mapTypeRef);
-   
-		for (Map.Entry<String, Double> entry : liveQuoteMap.entrySet()) {
-		    LiveQuote newLiveQuote = new LiveQuote(entry.getKey(), entry.getValue(),
-		            previousQuoteMap.get(entry.getKey()));
-		    liveQuoteArrayList.add(newLiveQuote);
-		}
+        previousQuoteMap = JsonParser.deserialize(previousQuoteResponse, "price", mapTypeRef);
+
+        for (Map.Entry<String, Double> entry : liveQuoteMap.entrySet()) {
+            LiveQuote newLiveQuote = new LiveQuote(entry.getKey(), entry.getValue(),
+                    previousQuoteMap.get(entry.getKey()));
+            liveQuoteArrayList.add(newLiveQuote);
+        }
         return liveQuoteArrayList;
     }
 }

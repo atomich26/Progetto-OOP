@@ -18,19 +18,21 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
 
     public HistoricalDataAdapter(String historicalResponse) {
         this.historicalResponse = historicalResponse;
-        this.mapTypeRef = new TypeReference<HashMap<String, HashMap<String, JsonNode>>>() {
-        };
+        this.mapTypeRef = new TypeReference<HashMap<String, HashMap<String, JsonNode>>>() {};
     }
 
     @Override
     public ArrayList<DataPoint> createList() {
         ArrayList<DataPoint> dataPointList = new ArrayList<>();
         HashMap<String, HashMap<String, JsonNode>> responseList;
+        Iterator<Map.Entry<String, HashMap<String, JsonNode>>> iterator;
+
         responseList = JsonParser.deserialize(historicalResponse, "price", mapTypeRef);
-        try {
-            Iterator<Map.Entry<String, HashMap<String, JsonNode>>> iterator = responseList.entrySet().iterator();
-            while (iterator.hasNext()) {
-                DataPoint dataPoint = new DataPoint(iterator.next().getKey().toString());
+        iterator = responseList.entrySet().iterator();
+        while (iterator.hasNext()) {
+            DataPoint dataPoint;
+            try {
+                dataPoint = new DataPoint(iterator.next().getKey().toString());
                 for (Map.Entry<String, JsonNode> currency : iterator.next().getValue().entrySet()) {
                     HistoricalQuote historicalQuote = new HistoricalQuote(currency.getKey());
                     historicalQuote.setHighValue(currency.getValue().get("high").asDouble());
@@ -40,10 +42,10 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
                     dataPoint.getHistoricalQuote().add(historicalQuote);
                 }
                 dataPointList.add(dataPoint);
+            } catch (IllegalDatePatternException e) {
+                e.printStackTrace();
             }
-            return dataPointList;
-        } catch (IllegalDatePatternException e) {
-            return null;
         }
+        return dataPointList;
     }
 }
