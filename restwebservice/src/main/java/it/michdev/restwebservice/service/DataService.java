@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Set;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.stereotype.Component;
-import ch.qos.logback.core.filter.Filter;
 import it.michdev.restwebservice.exception.CurrencyNotFoundException;
 import it.michdev.restwebservice.exception.IllegalDatePatternException;
 import it.michdev.restwebservice.exception.InvalidPeriodException;
-import it.michdev.restwebservice.model.HistoricalQuote;
 import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.model.dataseries.LiveSeries;
 import it.michdev.restwebservice.model.dataseries.TimeSeries;
@@ -20,7 +17,6 @@ import it.michdev.restwebservice.utils.adapter.LiveDataAdapter;
 import it.michdev.restwebservice.utils.filter.CurrencyFilter;
 import it.michdev.restwebservice.utils.filter.PeriodFilter;
 import it.michdev.restwebservice.utils.parser.JsonParser;
-import it.michdev.restwebservice.utils.time.Period;
 import it.michdev.restwebservice.webclient.FxMarketClient;
 
 @Component
@@ -56,9 +52,10 @@ public final class DataService {
         lastUpdate = Calendar.getInstance();
 
         // Effettua il parsing dei dati scaricati
-        TypeReference<HashMap<String, Double>> mapTypeRef = new TypeReference<HashMap<String, Double>>() {};
+        TypeReference<HashMap<String, Double>> mapTypeRef = new TypeReference<HashMap<String, Double>>() {
+        };
         HashMap<String, Double> updatedList = JsonParser.deserialize(liveResponse, "price", mapTypeRef);
-        
+
         // Aggiorna ogni oggetto presente nell'arraylist Dataset con i nuovi valori
         for (LiveQuote liveQuote : liveDataSet) {
             liveQuote.updateQuote(updatedList.get(liveQuote.getCurrencyPair()));
@@ -87,13 +84,26 @@ public final class DataService {
     }
 
     public static TimeSeries getHistoricalSeries(String baseCurrency, String bodyRequest)
-            throws InvalidPeriodException, IllegalDatePatternException {
-      
-        return null;
+            throws InvalidPeriodException, IllegalDatePatternException, CurrencyNotFoundException {
+        CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency);
+        PeriodFilter periodFilter = new PeriodFilter(bodyRequest);
+        String response = webClient.requestData(periodFilter, FilterService.buildCurrenciesQuery(currencyFilter)).body()
+                .toString();
+        HistoricalDataAdapter hsDataAdapter = new HistoricalDataAdapter(response);
+        TimeSeries timeSeries = new TimeSeries(periodFilter.getParam(), baseCurrency);
+        timeSeries.setDataSeries(hsDataAdapter.createList());
+        return timeSeries;
     }
 
-    public static HistoricalQuote getHistoricalSeries(String baseCurrency, String quoteCurrencies,
-            Period selectPeriod) {
-        return null;
+    public static TimeSeries getHistoricalSeries(String baseCurrency, Set<String> quoteCurrencies,
+            String bodyRequest) throws CurrencyNotFoundException, InvalidPeriodException, IllegalDatePatternException {
+        CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency, quoteCurrencies);
+        PeriodFilter periodFilter = new PeriodFilter(bodyRequest);
+        String response = webClient.requestData(periodFilter, FilterService.buildCurrenciesQuery(currencyFilter)).body()
+                .toString();
+        HistoricalDataAdapter hsDataAdapter = new HistoricalDataAdapter(response);
+        TimeSeries timeSeries = new TimeSeries(periodFilter.getParam(), baseCurrency);
+        timeSeries.setDataSeries(hsDataAdapter.createList());
+        return timeSeries;
     }
 }
