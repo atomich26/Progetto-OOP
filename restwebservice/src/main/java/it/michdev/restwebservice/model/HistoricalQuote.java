@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import it.michdev.restwebservice.utils.parser.DecimalParser;
 
-@JsonPropertyOrder({"open","high","low","close"})
+@JsonPropertyOrder({"currency","open","high","low","close"})
 public class HistoricalQuote extends CurrencyPair {
     
     private BigDecimal highValue, lowValue, openValue, closeValue;
