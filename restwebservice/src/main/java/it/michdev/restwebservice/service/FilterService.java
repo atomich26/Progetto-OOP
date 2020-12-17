@@ -22,7 +22,7 @@ public class FilterService {
         ArrayList<String> allCurrencies = new ArrayList<>();
 
         for (String currencyParam : currencyFilter.getQuoteCurrenciesQuery()) {
-            if (currencyParam != currencyFilter.getParam())
+            if (!currencyParam.equals(currencyFilter.getParam()))
                 allCurrencies.add(currencyFilter.getParam() + currencyParam);
         }
         return allCurrencies.stream().collect(Collectors.joining(","));
