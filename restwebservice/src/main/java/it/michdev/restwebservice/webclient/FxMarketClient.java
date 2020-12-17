@@ -2,10 +2,7 @@ package it.michdev.restwebservice.webclient;
 
 import java.net.URI;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Set;
-
 import org.springframework.web.util.UriComponentsBuilder;
 import it.michdev.restwebservice.core.AssetsManager;
 import it.michdev.restwebservice.utils.filter.PeriodFilter;
