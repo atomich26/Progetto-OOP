@@ -2,8 +2,6 @@ package it.michdev.restwebservice.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.utils.filter.CurrencyFilter;

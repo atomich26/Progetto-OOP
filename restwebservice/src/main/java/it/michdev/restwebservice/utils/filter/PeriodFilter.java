@@ -1,7 +1,6 @@
 package it.michdev.restwebservice.utils.filter;
 
 import java.util.Calendar;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import it.michdev.restwebservice.exception.IllegalDatePatternException;
 import it.michdev.restwebservice.exception.InvalidPeriodException;
@@ -17,7 +16,7 @@ public class PeriodFilter implements IFilter<Period> {
            this.selectedPeriod = JsonParser.parseNode(bodyRequest, Period.class);
         } catch (JsonProcessingException e) {
             throw new InvalidPeriodException(
-                    "Il filtro Period deve contenere i parametri di tipo {String} per i campi [start_date] e [end_date]. Consulta la documentazione.");
+                    "Il filtro Period deve contenere le date {yyyy-MM-dd} di tipo {String} per i campi [start_date] e [end_date]. Consulta la documentazione.");
         }
         checkParams();
     }
