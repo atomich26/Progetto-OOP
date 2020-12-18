@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * Classe principale dell'applicazione Java. Contiene al suo interno il metodo
- * main per l'avvio del software.
+ * main() per l'avvio del software.
  * 
  * @version 1.0.0
  * @author Michele Bevilacqua

@@ -21,6 +21,17 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
 import it.michdev.restwebservice.utils.time.Period;
 import it.michdev.restwebservice.webclient.FxMarketClient;
 
+/**
+ * La classe <code>DataService</code> rappresenta un servizio per l'applicazione
+ * Spring. Contiene i metodi per ottenere i dati da un dataset locale, scaricato
+ * per i valori aggiornati, o per inoltrare richieste <code>HTTP</code< alle
+ * fxmarketapi.com.
+ * 
+ * @version 1.0.0
+ * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.service.FilterService
+ * @see it.michdev.restwebservice.service.StatisticsService
+ */
 @Component
 public final class DataService {
 
@@ -28,6 +39,10 @@ public final class DataService {
     private static FxMarketClient webClient = new FxMarketClient();
     public static Calendar lastUpdate;
 
+    /**
+     * Crea un dataset locale in memoria per salvare i valori aggiornate delle
+     * valute e riutilizzarli per mostrarli all'utente.
+     */
     public static void createDataSet() {
         // Scarica i dati aggiornati
         String liveResponse = webClient.requestData().body().toString();
@@ -48,6 +63,9 @@ public final class DataService {
         liveDataSet.addAll(liveDataAdapter.createList());
     }
 
+    /**
+     * Aggiorna i valori delle valute del dataset locale.
+     */
     public static void updateDataSet() {
         // Scarica i dati aggiornati
         String liveResponse = webClient.requestData().body().toString();
@@ -64,12 +82,27 @@ public final class DataService {
         }
     }
 
+    /**
+     * Restituisce un riepilogo di tutti i tassi di cambio salvati nel dataset
+     * locale, con relative statistiche.
+     * 
+     * @return oggetto <code>LiveSeries</code>
+     */
     public static LiveSeries getOverview() {
         LiveSeries liveSeries = new LiveSeries();
         liveSeries.setDataSeries(liveDataSet);
         return liveSeries;
     }
 
+    /**
+     * Restituisce un riepilogo di tutti i tassi di cambio di una specifica valuta,
+     * con relative statistiche.
+     * 
+     * @param baseCurrency valuta di base dei dati da selezionare.
+     * @return oggetto <code>LiveSeries</code>
+     * @throws CurrencyNotFoundException eccezione generata in caso di mancata
+     *                                   disponibilità della valuta scelta.
+     */
     public static LiveSeries getLiveQuoteSeries(String baseCurrency) throws CurrencyNotFoundException {
         CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency);
         LiveSeries liveSeries = new LiveSeries(baseCurrency);
@@ -77,6 +110,16 @@ public final class DataService {
         return liveSeries;
     }
 
+    /**
+     * Restituisce un riepilogo di tutti i tassi di cambio di una specifiche valute
+     * di base e di quotazione, con relativi dati statistici.
+     * 
+     * @param baseCurrency    valuta di base dei dati da selezionare.
+     * @param quoteCurrencies elenco di valute di quotazione.
+     * @return oggetto <code>LiveSeries</code>
+     * @throws CurrencyNotFoundException eccezione generata in caso di mancata
+     *                                   disponibilità delle valute scelte.
+     */
     public static LiveSeries getLiveQuoteSeries(String baseCurrency, Set<String> quotesCurrencies)
             throws CurrencyNotFoundException {
         CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency, quotesCurrencies);
@@ -85,6 +128,20 @@ public final class DataService {
         return liveSeries;
     }
 
+    /**
+     * Restituisce un riepilogo di un determinato perido, di tutti i tassi di cambio
+     * di una specifica valuta, con relative statistiche.
+     * 
+     * @param baseCurrency valuta di base dei dati da selezionare.
+     * @param bodyRequest  body del filtro del periodo.
+     * @return oggetto <code>TimeSeries</code>
+     * @throws CurrencyNotFoundException  eccezione generata in caso di mancata
+     *                                    disponibilità delle valute scelte.
+     * @throws IllegaDatePatternException eccezione generata in caso di caso di date
+     *                                    mal formattate.
+     * @throws InvalidPeriodException     eccezione generata in caso di un periodo
+     *                                    non valido.
+     */
     public static TimeSeries getHistoricalSeries(String baseCurrency, String bodyRequest)
             throws InvalidPeriodException, IllegalDatePatternException, CurrencyNotFoundException {
         CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency);
@@ -97,6 +154,22 @@ public final class DataService {
         return timeSeries;
     }
 
+    /**
+     * Restituisce un riepilogo dei valori di tutti i tassi di cambio di una
+     * specifica valuta di base e di quotazione, di un determinato periodo con
+     * relative statistiche.
+     * 
+     * @param baseCurrency    valuta di base dei dati da selezionare.
+     * @param quoteCurrencies elenco delle valute di quotazione.
+     * @param bodyRequest     body del filtro del periodo.
+     * @return oggetto <code>TimeSeries</code>
+     * @throws CurrencyNotFoundException  eccezione generata in caso di mancata
+     *                                    disponibilità delle valute scelte.
+     * @throws IllegaDatePatternException eccezione generata in caso di caso di date
+     *                                    mal formattate.
+     * @throws InvalidPeriodException     eccezione generata in caso di un periodo
+     *                                    non valido.
+     */
     public static TimeSeries getHistoricalSeries(String baseCurrency, Set<String> quoteCurrencies, String bodyRequest)
             throws CurrencyNotFoundException, InvalidPeriodException, IllegalDatePatternException {
         CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency, quoteCurrencies);
@@ -109,9 +182,17 @@ public final class DataService {
         return timeSeries;
     }
 
+    /**
+     * Restituisce un riepilogo dei valori di tutti i tassi di cambio appartenenti
+     * al periodo selezionato.
+     * 
+     * @param period periodo dei dati da selezionare
+     * @return oggetto <code>TimeSeries</code>
+     */
     public static TimeSeries getHistoricalSeries(Period period) {
         PeriodFilter periodFilter = new PeriodFilter(period);
-        String response = webClient.requestData(periodFilter, AssetsManager.getCurrenciesList().getCurrenciesPairsQuery()).body()
+        String response = webClient
+                .requestData(periodFilter, AssetsManager.getCurrenciesList().getCurrenciesPairsQuery()).body()
                 .toString();
         HistoricalDataAdapter hsDataAdapter = new HistoricalDataAdapter(response);
         TimeSeries timeSeries = new TimeSeries(periodFilter.getParam());

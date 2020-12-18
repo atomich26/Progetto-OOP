@@ -50,7 +50,8 @@ public final class AssetsManager {
 
     /**
      * Ottiene il contenuto presente nel file metadata.json
-     * @return oggetto <code>JsonNode</code>  
+     * 
+     * @return oggetto <code>JsonNode</code>
      */
     public static JsonNode getMetadata() {
         return metadata;
@@ -58,6 +59,7 @@ public final class AssetsManager {
 
     /**
      * Ottiene la lista delle valute disponibili contenute nel file currencies.json
+     * 
      * @return oggetto <code>CurrenciesList</code>.
      */
     public static CurrenciesList getCurrenciesList() {

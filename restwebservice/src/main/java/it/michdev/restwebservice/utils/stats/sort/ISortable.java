@@ -14,9 +14,21 @@ import java.math.BigDecimal;
  */
 public interface ISortable {
 
+    /**
+     * Restituisce il valore calcolato dell'indice statistico <i>change</i>.
+     * @return oggetto <code>BigDecimal</code>
+     */
     public BigDecimal getChangeValue();
 
+    /**
+     * Restituisce il valore calcolato dell'indice statistico <i>percentage change</i>.
+     * @return oggetto <code>BigDecimal</code>
+     */
     public BigDecimal getPctChangeValue();
 
+    /**
+     * Restituisce il codice della coppia di valute elaborata.
+     * @return oggetto <code>BigDecimal</code>
+     */
     public String getCurrencyPair();
 }

@@ -69,8 +69,10 @@ public class FxMarketClient extends WebClient {
     public HttpResponse<String> requestData(PeriodFilter periodFilter, String quoteCurrenciesQuery) {
         requestUri = UriComponentsBuilder.fromUriString(endpoint).path("apitimeseries").queryParam("api_key", accessKey)
                 .queryParam("currency", quoteCurrenciesQuery)
-                .queryParam("start_date", DateParser.getDateAsString(periodFilter.getParam().getStartDate(), DateParser.YYYYMMDD))
-                .queryParam("end_date", DateParser.getDateAsString(periodFilter.getParam().getEndDate(), DateParser.YYYYMMDD))
+                .queryParam("start_date",
+                        DateParser.getDateAsString(periodFilter.getParam().getStartDate(), DateParser.YYYYMMDD))
+                .queryParam("end_date",
+                        DateParser.getDateAsString(periodFilter.getParam().getEndDate(), DateParser.YYYYMMDD))
                 .queryParam("interval", "daily").build().toUri();
         return downloadData(requestUri);
     }
