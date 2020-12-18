@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
-public class RestWebServiceApplication {
+public class RestwebserviceApplication {
 
 	/**
 	 * Questo metodo è il punto di partenza dell'esecuzione del software.
@@ -20,6 +20,6 @@ public class RestWebServiceApplication {
 	 * @param args argomenti scritti a riga di comando.
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(RestWebServiceApplication.class, args);
+		SpringApplication.run(RestwebserviceApplication.class, args);
 	}
 }
