@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
  * Spring. Questa classe s'interfaccia con i dati contenuti nei file di risorse,
  * quali: <i>currencies.json</i>, <i>config.json</i>, <i>metadata.json</i>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.core.TaskManager
  */
@@ -39,26 +39,28 @@ public final class AssetsManager {
     }
 
     /**
-     * Restituisce l'access key salvato in config.json utile per effettuare le
-     * chiamate HTTP al servizio fxmarketapi.com
+     * Restituisce l'access key salvato in c<i>config.json</i>, utile per effettuare
+     * le chiamate HTTP al servizio fxmarketapi.com.
      * 
-     * @return stringa dell'access key salvato.
+     * @return stringa dell'access key
      */
     public static String getAccessKey() {
         return accessKey;
     }
 
     /**
-     * Ottiene il contenuto presente nel file metadata.json
+     * Restituisce il contenuto presente nel file <i>metadata.json</i> come ogetto
+     * <code>JsonNode</code>
      * 
-     * @return oggetto <code>JsonNode</code>
+     * @return <code>JsonNode</code>
      */
     public static JsonNode getMetadata() {
         return metadata;
     }
 
     /**
-     * Ottiene la lista delle valute disponibili contenute nel file currencies.json
+     * Ottiene la lista delle valute disponibili contenute nel file
+     * <i>currencies.json</i>
      * 
      * @return oggetto <code>CurrenciesList</code>.
      */

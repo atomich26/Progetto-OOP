@@ -6,16 +6,16 @@ package it.michdev.restwebservice.exception;
  * della richiesta <code>POST</code> non è corretto. L'eccezione è gestita dalla
  * classe <b>GlobalExceptionHandler</b>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
- * @see it.michdev.restwebservice.component.GlobalExceptionHandler
+ * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */
 public class InvalidPeriodException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Costruttore per la classe <b>CurrencyNotFoundException</b>
+     * Costruttore per la classe <b>InvalidPeriodException</b>
      * 
      * @param message descrizione dell'eccezione generata.
      */

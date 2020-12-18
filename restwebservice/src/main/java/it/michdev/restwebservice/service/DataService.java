@@ -24,7 +24,7 @@ import it.michdev.restwebservice.webclient.FxMarketClient;
 /**
  * La classe <code>DataService</code> rappresenta un servizio per l'applicazione
  * Spring. Contiene i metodi per ottenere i dati da un dataset locale, scaricato
- * per i valori aggiornati, o per inoltrare richieste <code>HTTP</code< alle
+ * per i valori aggiornati, o per inoltrare richieste <code>HTTP</code> alle
  * fxmarketapi.com.
  * 
  * @version 1.0.0

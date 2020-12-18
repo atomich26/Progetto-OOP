@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
  * Il messaggio contiene le informazioni riguardo il nome dell'errore con
  * relativa descrizione e l'istante in cui si è verificato.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */
@@ -34,7 +34,6 @@ public class ErrorResponse {
      * Restituisce la descrizione dell'errore impostata.
      * 
      * @return Stringa della descrizione.
-     * @see #setMessage(String)
      */
     public String getMessage() {
         return this.message;
@@ -44,7 +43,6 @@ public class ErrorResponse {
      * Imposta la descrizione dell'errore che si vuole mostrare all'utente.
      * 
      * @param errorMessage descrizione del'errore riscontrato.
-     * @see #getMessage
      */
     public void setMessage(String errorMessage) {
         this.message = errorMessage;
@@ -54,7 +52,6 @@ public class ErrorResponse {
      * Restituisce il nome dell'errore riscontrato.
      * 
      * @return Stringa del nome.
-     * @see #setName(String)
      */
     public String getName() {
         return this.name;
@@ -64,7 +61,6 @@ public class ErrorResponse {
      * Imposta il nome dell'errore riscontrato.
      * 
      * @param errorName nome dell'errore che si vuole impostare.
-     * @see #getName
      */
     public void setName(String errorName) {
         this.name = errorName;
@@ -74,7 +70,6 @@ public class ErrorResponse {
      * Restituisce la data e l'ora in cui è stato generato l'errore.
      * 
      * @return Stringa della data.
-     * @see #setTimeStamp(String)
      */
     public String getTimestamp() {
         return this.timeStamp.toString();
@@ -85,7 +80,6 @@ public class ErrorResponse {
      * 
      * @param timeStamp data e ora che si vuole impostare passati come oggetto
      *                  <code>ZonedTime</code>.
-     * @see #getTimeStamp
      */
     public void setTimeStamp(ZonedDateTime timeStamp) {
         this.timeStamp = timeStamp;

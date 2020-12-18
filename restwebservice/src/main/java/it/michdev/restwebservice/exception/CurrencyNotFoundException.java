@@ -3,12 +3,12 @@ package it.michdev.restwebservice.exception;
 /**
  * L'eccezione <b>CurrencyNotFoundException</b> estende <b>Exception</b>. Essa
  * viene generata quando la valuta scelta dall'utente non è disponibile
- * all'intero dell'elenco nel file <i>assets.json</i>. L'eccezione è gestita
+ * all'interno dell'elenco nel file <i>assets.json</i>. L'eccezione è gestita
  * dalla classe <b>GlobalExceptionHandler</b>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
- * @see it.michdev.restwebservice.component.GlobalExceptionHandler
+ * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */
 public class CurrencyNotFoundException extends Exception {
 

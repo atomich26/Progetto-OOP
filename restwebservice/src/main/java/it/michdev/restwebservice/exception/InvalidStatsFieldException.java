@@ -2,13 +2,13 @@ package it.michdev.restwebservice.exception;
 
 /**
  * L'eccezione <b>InvalidStatsFieldException</b> estende <b>Exception</b>. Essa
- * viene generata quando il periodo di tempo stabilito nel <code>body</code>
- * della richiesta <code>POST</code> non è corretto. L'eccezione è gestita dalla
- * classe <b>GlobalExceptionHandler</b>.
+ * viene generata quando il campo del valore di una quotazione di una serie
+ * storica non esiste. L'eccezione è gestita dalla classe
+ * <b>GlobalExceptionHandler</b>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
- * @see it.michdev.restwebservice.component.GlobalExceptionHandler
+ * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */
 public class InvalidStatsFieldException extends Exception {
 
@@ -23,4 +23,3 @@ public class InvalidStatsFieldException extends Exception {
         super(message);
     }
 }
-

@@ -24,11 +24,10 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>IOException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return oggetto <code>ResponseEntity<ErrorResponse></code> con le
-     *         informazioni sull'eccezione generata.
+     * @return oggetto <code>ResponseEntity</code> di <code>ErrorResponse</code>
      * @see it.michdev.restwebservice.exception.InternalServerException
      */
-    @ExceptionHandler({IOException.class, FileNotFoundException.class})
+    @ExceptionHandler({ IOException.class, FileNotFoundException.class })
 
     public ResponseEntity<ErrorResponse> handleInternalServerException(Exception e) {
         return new ResponseEntity<>(new ErrorResponse("InternalServerError",
@@ -40,13 +39,12 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>CurrencyNotFoundException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return oggetto <code>ResponseEntity<ErrorResponse></code> con le
-     *         informazioni sull'eccezione generata.
+     * @return <code>ResponseEntity</code> di <code>ErrorResponse</code>
+     * @see it.michdev.restwebservice.exception.CurrencyNotFoundException
      */
     @ExceptionHandler(CurrencyNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleCurrencyNotFoundException(Exception e) {
-        return new ResponseEntity<>(
-                new ErrorResponse("CurrencyNotFoundException",e.getMessage()),
+        return new ResponseEntity<>(new ErrorResponse("CurrencyNotFoundException", e.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 
@@ -54,8 +52,8 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>InvalidPeriodException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return oggetto <code>ResponseEntity<ErrorResponse></code> con le
-     *         informazioni sull'eccezione generata.
+     * @return <code>ResponseEntity</code> di<code>ErrorResponse</code>
+     * @see it.michdev.restwebservice.exception.InvalidPeriodException
      */
     @ExceptionHandler(InvalidPeriodException.class)
     public ResponseEntity<ErrorResponse> handleInvalidPeriodException(Exception e) {
@@ -67,12 +65,37 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>IllegalDatePatternException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return oggetto <code>ResponseEntity<ErrorResponse></code> con le
-     *         informazioni sull'eccezione generata.
+     * @return <code>ResponseEntity<code>ErrorResponse></code>
+     * @see it.michdev.restwebservice.exception.IllegalDatePatternException
      */
     @ExceptionHandler(IllegalDatePatternException.class)
     public ResponseEntity<ErrorResponse> handleIllegalDatePatternException(Exception e) {
         return new ResponseEntity<>(new ErrorResponse("IllegalDatePatternException", e.getMessage()),
+                HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * Questo metodo gestisce l'eccezione <code>DataNotFoundException</code>.
+     * 
+     * @param e eccezione generata che si vuole gestire.
+     * @return <code>ResponseEntity<code>ErrorResponse></code>
+     * @see it.michdev.restwebservice.exception.DataNotFoundException
+     */
+    @ExceptionHandler(DataNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleDataNotFoundException(Exception e) {
+        return new ResponseEntity<>(new ErrorResponse("DataNotFoundException", e.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * Questo metodo gestisce l'eccezione <code>InvalidStatsFieldException</code>.
+     * 
+     * @param e eccezione generata che si vuole gestire.
+     * @return <code>ResponseEntity<code>ErrorResponse></code>
+     * @see it.michdev.restwebservice.exception.InvalidStatsFieldException
+     */
+    @ExceptionHandler(DataNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidStatsFieldException(Exception e) {
+        return new ResponseEntity<>(new ErrorResponse("InvalidStatsFieldException", e.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 }

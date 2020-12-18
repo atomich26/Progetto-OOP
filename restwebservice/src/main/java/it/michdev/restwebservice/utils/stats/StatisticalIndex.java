@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 /**
- * La classe <b>StatisticalIndex</code> disponde di metodi per il calcolo dei
+ * La classe <code>StatisticalIndex</code> disponde di metodi per il calcolo dei
  * più importanti indici statistici come la media, la varianza, la differenza
  * percentuale e operazioni matematiche come la differenza tra due valori.
  * 

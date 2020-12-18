@@ -21,7 +21,7 @@ import it.michdev.restwebservice.utils.stats.StatisticalIndex;
  * 
  * @version 1.0.0
  * @author Michele Bevilacqua
- * @see it.michdev.restwebservice.utils.stats.StatisticIndex
+ * @see it.michdev.restwebservice.utils.stats.StatisticalIndex
  */
 public final class StatisticsService {
 
@@ -55,7 +55,7 @@ public final class StatisticsService {
             throw new DataNotFoundException(
                     "La richiesta non ha prodotto nessun dato disponibile per le statistiche. Prova a cambiare parametri.");
 
-        // Ricavo i dati dagli oggetti DataPoint
+        // Ricava i dati dagli oggetti DataPoint
         try {
             Method m = HistoricalQuote.class.getDeclaredMethod("get" + fieldName + "Value");
             for (DataPoint dataPoint : timeSeries.getDataSeries()) {
@@ -73,7 +73,7 @@ public final class StatisticsService {
         ArrayList<Report> reportList = new ArrayList<>();
         StatsSeries statsSeries = new StatsSeries(timeSeries.getPeriod());
 
-        //Creo gli oggetti report con i dati statistici calcolati
+        //Crea gli oggetti report con i dati statistici calcolati
         for (Map.Entry<String, ArrayList<BigDecimal>> value : currencyValues.entrySet()) {
             Report currencyReport = new Report(value.getKey());
             currencyReport.setAverage(StatisticalIndex.average(value.getValue()));

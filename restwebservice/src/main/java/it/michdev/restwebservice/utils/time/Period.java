@@ -8,7 +8,7 @@ import java.util.Calendar;
  * 
  * @version 1.0.0
  * @author Michele Bevilacqua
- * @see it.michdev.restwebservice.utils.time.ITime;
+ * @see it.michdev.restwebservice.utils.time.ITime
  */
 public class Period implements ITime {
 

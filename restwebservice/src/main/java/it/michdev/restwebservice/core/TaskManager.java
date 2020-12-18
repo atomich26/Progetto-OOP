@@ -8,10 +8,10 @@ import it.michdev.restwebservice.service.DataService;
 /**
  * La classe <b>TaskManager</b> rappresenta un componente gestito per
  * l'applicazione Spring. Contiene tutti i metodi, la cui chiamata è programmata
- * per mezzo di annotazioni Spring <code>PostContruct</code> o
+ * a intervalli per mezzo di annotazioni Spring <code>PostContruct</code> o
  * <code>Scheduled</code>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.core.AssetsManager
  */
@@ -19,9 +19,9 @@ import it.michdev.restwebservice.service.DataService;
 public final class TaskManager {
 
     /**
-     * Questo metodo viene eseguito all'avvio dell'applicazione Spring. Richiama
-     * metodi i quali necessitano di essere eseguite all'avvio, in particolare
-     * quelle per la creazione di un dataset.
+     * Questo metodo viene eseguito all'avvio dell'applicazione Spring. Richiama i
+     * metodi che necessitano di essere eseguiti all'avvio, in particolare quelli
+     * per la creazione di un dataset locale.
      */
     @PostConstruct
     public static void doLaunchTask() {
