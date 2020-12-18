@@ -6,8 +6,7 @@ package it.michdev.restwebservice.exception;
  * della richiesta <code>POST</code> non è corretto. L'eccezione è gestita dalla
  * classe <b>GlobalExceptionHandler</b>.
  * 
- * @version 0.2.1
- * @since 0.2.0
+ * @version 0.8.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.component.GlobalExceptionHandler
  */

@@ -8,8 +8,7 @@ package it.michdev.restwebservice.exception;
  * <b>GlobalExceptionHandler</b>.
  * Per visualizzare la struttura corretta del <code>body</code> consulta la documentazione.
  * 
- * @version 0.2.1
- * @since 0.2.0
+ * @version 0.8.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.component.GlobalExceptionHandler
  */

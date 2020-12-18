@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * runtime, inviando all'utente un oggetto <code>ErrorResponse</code> con le
  * informazioni sull'eccezione generata.
  * 
- * @version 0.2.1
- * @since 0.2.0
+ * @version 0.8.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.exception.ErrorResponse
  */
@@ -64,6 +63,13 @@ public final class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Questo metodo gestisce l'eccezione <code>IllegalDatePatternException</code>.
+     * 
+     * @param e eccezione generata che si vuole gestire.
+     * @return oggetto <code>ResponseEntity<ErrorResponse></code> con le
+     *         informazioni sull'eccezione generata.
+     */
     @ExceptionHandler(IllegalDatePatternException.class)
     public ResponseEntity<ErrorResponse> handleIllegalDatePatternException(Exception e) {
         return new ResponseEntity<>(new ErrorResponse("IllegalDatePatternException", e.getMessage()),
