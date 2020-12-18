@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Set;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.stereotype.Component;
-
 import it.michdev.restwebservice.core.AssetsManager;
 import it.michdev.restwebservice.exception.CurrencyNotFoundException;
 import it.michdev.restwebservice.exception.IllegalDatePatternException;

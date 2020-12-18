@@ -9,7 +9,7 @@ import java.math.RoundingMode;
  * valute in <code>Double</code> in oggetti <code>BigDecimal</code> per una
  * maggiore precisione.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.parser.DateParser
  * @see it.michdev.restwebservice.utils.parser.JsonParser

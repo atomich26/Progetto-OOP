@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
  * Spring. Questa classe s'interfaccia con i dati contenuti nei file di risorse,
  * quali: <i>currencies.json</i>, <i>config.json</i>, <i>metadata.json</i>.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.core.TaskManager
  */

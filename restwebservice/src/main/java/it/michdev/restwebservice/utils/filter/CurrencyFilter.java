@@ -10,7 +10,7 @@ import it.michdev.restwebservice.exception.CurrencyNotFoundException;
  * <code>IFilter</code>. Verifica la validità dei parametri inseriti dall'utente
  * e li restituisce per filtrare i dati.in base alle valute selezionate.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.filter.IFilter
  * @see it.michdev.restwebservice.utils.filter.PeriodFilter

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * runtime, inviando all'utente un oggetto <code>ErrorResponse</code> con le
  * informazioni sull'eccezione generata.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.exception.ErrorResponse
  */

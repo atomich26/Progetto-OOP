@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
  * Il messaggio contiene le informazioni riguardo il nome dell'errore con
  * relativa descrizione e l'istante in cui si è verificato.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */

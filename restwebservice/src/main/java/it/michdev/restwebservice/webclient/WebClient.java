@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
  * metodi per effettuare chiamate ad un endpoint definito. Questa classe è
  * estesa da <code>FxMarketClient</code>.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.webclient.FxMarketClient
  */

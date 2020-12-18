@@ -2,6 +2,7 @@ package it.michdev.restwebservice.model;
 
 import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import it.michdev.restwebservice.utils.stats.sort.ISortable;
@@ -16,6 +17,7 @@ public class Report extends CurrencyPair implements ISortable{
         super(currencyPairCode);
     }
 
+    @JsonProperty("change")
     public BigDecimal getChangeValue() {
         return this.change;
     }
@@ -25,15 +27,16 @@ public class Report extends CurrencyPair implements ISortable{
     }
 
     @Override
+    @JsonProperty("ptc_change")
     public BigDecimal getPctChangeValue() {
-       
-        return null;
+        return this.ptcChange;
     }
 
     public void setPtcChange(BigDecimal ptcChange) {
         this.ptcChange = ptcChange;
     }
 
+    @JsonProperty("variance")
     public BigDecimal getVariance() {
         return this.variance;
     }
@@ -42,6 +45,7 @@ public class Report extends CurrencyPair implements ISortable{
         this.variance = variance;
     }
 
+    @JsonProperty("average")
     public BigDecimal getAverage() {
         return this.average;
     }

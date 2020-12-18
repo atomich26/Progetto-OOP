@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * più importanti indici statistici come la media, la varianza, la differenza
  * percentuale e operazioni matematiche come la differenza tra due valori.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  */
 public class StatisticalIndex {
@@ -56,9 +56,8 @@ public class StatisticalIndex {
             for (BigDecimal value : dataList) {
                 average = average.add(value);
             }
-            average = average.divide(new BigDecimal(dataList.size()), MathContext.DECIMAL64).setScale(5,
-                    RoundingMode.HALF_EVEN);
-            return average;
+            average = average.divide(new BigDecimal(dataList.size()), MathContext.DECIMAL64);
+            return average.setScale(5,RoundingMode.HALF_EVEN);
         } catch (ArithmeticException e) {
             return new BigDecimal(0);
         }
@@ -76,14 +75,14 @@ public class StatisticalIndex {
 
         try {
             for (BigDecimal value : dataList) {
-                BigDecimal difference = value.subtract(average, MathContext.DECIMAL64).setScale(5,
+                BigDecimal difference = change(average, value).setScale(5,
                         RoundingMode.HALF_EVEN);
                 difference = difference.pow(2, MathContext.DECIMAL64);
                 variance = variance.add(difference);
             }
 
             variance = variance.divide(new BigDecimal(dataList.size()), MathContext.DECIMAL64);
-            return variance;
+            return variance.setScale(7, RoundingMode.HALF_EVEN);
         } catch (ArithmeticException e) {
             return new BigDecimal(0);
         }

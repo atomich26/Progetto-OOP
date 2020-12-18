@@ -7,6 +7,9 @@ import it.michdev.restwebservice.model.DataPoint;
 import it.michdev.restwebservice.utils.parser.DateParser;
 import it.michdev.restwebservice.utils.time.Period;
 
+/**
+ * Ja
+ */
 @JsonPropertyOrder({"code", "name","start_date", "end_date", "time_series"})
 public class TimeSeries extends DataSeries<DataPoint> {
     
@@ -30,6 +33,10 @@ public class TimeSeries extends DataSeries<DataPoint> {
     @JsonProperty("end_date")
     public String getEndDate() {
         return DateParser.getDateAsString(timeSeriesPeriod.getEndDate(), DateParser.YYYYMMDD);
+    }
+
+    public Period getPeriod() {
+        return this.timeSeriesPeriod;
     }
 
     @Override

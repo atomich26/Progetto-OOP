@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * Classe principale dell'applicazione Java. Contiene al suo interno il metodo
  * main per l'avvio del software.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  */
 @SpringBootApplication

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import it.michdev.restwebservice.utils.parser.DecimalParser;
 import it.michdev.restwebservice.utils.stats.StatisticalIndex;
+import it.michdev.restwebservice.utils.stats.sort.ISortable;
 
 /**
  * @version 0.3.0
@@ -12,7 +13,7 @@ import it.michdev.restwebservice.utils.stats.StatisticalIndex;
  * @author Michele Bevilacqua
  */
 @JsonPropertyOrder({"currency", "last", "previous", "change", "ptc_change" })
-public class LiveQuote extends CurrencyPair {
+public class LiveQuote extends CurrencyPair implements ISortable{
 
     private BigDecimal updatedValue, previousValue, changeValue, pctChange;
 
@@ -34,13 +35,15 @@ public class LiveQuote extends CurrencyPair {
         return this.previousValue;
     }
 
+    @Override
     @JsonProperty("change")
     public BigDecimal getChangeValue() {
         return this.changeValue;
     }
 
+    @Override
     @JsonProperty("pct_change")
-    public BigDecimal getPctChange() {
+    public BigDecimal getPctChangeValue() {
         return this.pctChange;
     }
 

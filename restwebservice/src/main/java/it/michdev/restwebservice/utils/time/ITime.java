@@ -7,7 +7,7 @@ import java.util.Calendar;
  * oggetti che rappresentano un periodo di tempo, come la classe
  * <code>Period</code>.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.time.Period
  */

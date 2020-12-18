@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * La classe <code>JsonParser</code> mette a disposizione metodi per la
  * de/serializzazione dei dati formattati in file/stringhe <code>JSON</code>.
  * 
- * @version 0.8.0
+ * @version 1.0.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.parser.DecimalParser
  * @see it.michdev.restwebservice.utils.parser.DateParser
