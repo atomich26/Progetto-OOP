@@ -9,12 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.service.DataService;
 import it.michdev.restwebservice.utils.parser.DateParser;
+import it.michdev.restwebservice.utils.stats.sort.Sort;
 
-@JsonPropertyOrder({"code", "name","last_refreshed", "quotes" })
+@JsonPropertyOrder({"code", "name","last_refreshed","trend","quotes" })
 @JsonInclude(Include.NON_NULL)
 public class LiveSeries extends DataSeries<LiveQuote>{
 
     private Calendar timeStamp;
+    private Sort<LiveQuote> currenciesTrend;
     private ArrayList<LiveQuote> liveQuoteList;
 
     public LiveSeries(String baseCurrencyCode) {
@@ -36,11 +38,17 @@ public class LiveSeries extends DataSeries<LiveQuote>{
     @Override
     public void setDataSeries(ArrayList<LiveQuote> dataList) {
         this.liveQuoteList = dataList;
-
+        if(dataList.size() > 1)
+            currenciesTrend = new Sort<LiveQuote>(dataList);
     }
 
     @JsonProperty("last_refreshed")
     public String getTimeStampAsString() {
-        return DateParser.getDateAsString(timeStamp,DateParser.YYYYMMDDHHmmss);
+        return DateParser.getDateAsString(timeStamp, DateParser.YYYYMMDDHHmmss);
+    }
+    
+    @JsonProperty("trend")
+    public Sort<LiveQuote> getSeriesTrend() {
+        return this.currenciesTrend;
     }
 }
