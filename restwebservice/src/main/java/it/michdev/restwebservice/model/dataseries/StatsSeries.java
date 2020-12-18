@@ -8,7 +8,7 @@ import it.michdev.restwebservice.utils.parser.DateParser;
 import it.michdev.restwebservice.utils.stats.sort.Sort;
 import it.michdev.restwebservice.utils.time.Period;
 
-@JsonPropertyOrder({"start_date", "end_date", "data_series"})
+@JsonPropertyOrder({"start_date", "end_date", "trend", "data_series"})
 public class StatsSeries extends DataSeries<Report> {
 
     private Period period;
@@ -41,13 +41,14 @@ public class StatsSeries extends DataSeries<Report> {
     
     @JsonProperty("end_date")
     public String getEndDate() {
-        return DateParser.getDateAsString(period.getStartDate(), DateParser.YYYYMMDD);
+        return DateParser.getDateAsString(period.getEndDate(), DateParser.YYYYMMDD);
     }
 
     public void setPeriod(Period period) {
         this.period = period;
     }
 
+    @JsonProperty("trend")
     public Sort<Report> getCurrencyTrend() {
         return this.currencyTrend;
     }

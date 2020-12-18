@@ -1,6 +1,8 @@
 package it.michdev.restwebservice.model.dataseries;
 
 import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import it.michdev.restwebservice.model.DataPoint;
@@ -35,6 +37,7 @@ public class TimeSeries extends DataSeries<DataPoint> {
         return DateParser.getDateAsString(timeSeriesPeriod.getEndDate(), DateParser.YYYYMMDD);
     }
 
+    @JsonIgnore
     public Period getPeriod() {
         return this.timeSeriesPeriod;
     }
