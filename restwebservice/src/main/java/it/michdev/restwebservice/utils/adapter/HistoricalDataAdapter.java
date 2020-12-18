@@ -28,8 +28,9 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
 
     /**
      * Costruttore per la classe <code>HistoricalDataAdapter</code>.
-     * @param historicalResponse stringa <code>json</code> dei dati storici
-     *                              ottenuta dal webclient.
+     * 
+     * @param historicalResponse stringa <code>json</code> dei dati storici ottenuta
+     *                           dal webclient.
      */
     public HistoricalDataAdapter(String historicalResponse) {
         this.historicalResponse = historicalResponse;
@@ -51,9 +52,7 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
         LinkedHashMap<String, LinkedHashMap<String, JsonNode>> responseList;
         responseList = JsonParser.deserialize(historicalResponse, "price", mapTypeRef);
 
-        for (Map.Entry<String, LinkedHashMap<String, JsonNode>> dataReport : responseList.entrySet())
-            
-        {
+        for (Map.Entry<String, LinkedHashMap<String, JsonNode>> dataReport : responseList.entrySet()) {
             DataPoint dataPoint;
             try {
                 dataPoint = new DataPoint(dataReport.getKey().toString());
