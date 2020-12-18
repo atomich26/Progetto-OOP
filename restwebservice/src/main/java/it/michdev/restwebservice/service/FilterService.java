@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.utils.filter.CurrencyFilter;
 
-public class FilterService {
+public final class FilterService {
 
     public static ArrayList<LiveQuote> filterLiveQuotes(CurrencyFilter currencyFilter, ArrayList<LiveQuote> dataToFilter) {
         List<LiveQuote> filteredList = new ArrayList<>();

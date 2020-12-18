@@ -18,6 +18,15 @@ public class PeriodFilter implements IFilter<Period> {
     private Period selectedPeriod;
 
     /**
+     * Costruttore per la classe <code>Period</code>
+     * 
+     * @param period periodo filtro.
+     */
+    public PeriodFilter(Period period) {
+        this.selectedPeriod = period;
+    }
+
+    /**
      * Costruttore per la classe <code>PeriodFilter</code>.
      * 
      * @param bodyRequest stringa del body inoltrato con le chiamate HTTP.
@@ -79,8 +88,7 @@ public class PeriodFilter implements IFilter<Period> {
         Calendar limitDate = Calendar.getInstance();
         limitDate.set(2014, 11, 31, 0, 0);
 
-        if (selectedPeriod.getEndDate().compareTo(now) > 0 || selectedPeriod.getStartDate().compareTo(limitDate) < 0)
-            throw new InvalidPeriodException(
-                    "Il periodo deve essere incluso tra 2015-01-01 e il giorno precedente alla data corrente.");
+        if (selectedPeriod.getEndDate().after(now) || selectedPeriod.getStartDate().before(limitDate))
+            throw new InvalidPeriodException("Il periodo deve essere incluso tra 2015-01-01 e il giorno corrente.");
     }
 }
