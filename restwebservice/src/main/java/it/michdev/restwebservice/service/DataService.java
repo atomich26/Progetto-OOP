@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Set;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.stereotype.Component;
+
+import it.michdev.restwebservice.core.AssetsManager;
 import it.michdev.restwebservice.exception.CurrencyNotFoundException;
 import it.michdev.restwebservice.exception.IllegalDatePatternException;
 import it.michdev.restwebservice.exception.InvalidPeriodException;
@@ -17,6 +19,7 @@ import it.michdev.restwebservice.utils.adapter.LiveDataAdapter;
 import it.michdev.restwebservice.utils.filter.CurrencyFilter;
 import it.michdev.restwebservice.utils.filter.PeriodFilter;
 import it.michdev.restwebservice.utils.parser.JsonParser;
+import it.michdev.restwebservice.utils.time.Period;
 import it.michdev.restwebservice.webclient.FxMarketClient;
 
 @Component
@@ -95,14 +98,24 @@ public final class DataService {
         return timeSeries;
     }
 
-    public static TimeSeries getHistoricalSeries(String baseCurrency, Set<String> quoteCurrencies,
-            String bodyRequest) throws CurrencyNotFoundException, InvalidPeriodException, IllegalDatePatternException {
+    public static TimeSeries getHistoricalSeries(String baseCurrency, Set<String> quoteCurrencies, String bodyRequest)
+            throws CurrencyNotFoundException, InvalidPeriodException, IllegalDatePatternException {
         CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency, quoteCurrencies);
         PeriodFilter periodFilter = new PeriodFilter(bodyRequest);
         String response = webClient.requestData(periodFilter, FilterService.buildCurrenciesQuery(currencyFilter)).body()
                 .toString();
         HistoricalDataAdapter hsDataAdapter = new HistoricalDataAdapter(response);
         TimeSeries timeSeries = new TimeSeries(periodFilter.getParam(), baseCurrency);
+        timeSeries.setDataSeries(hsDataAdapter.createList());
+        return timeSeries;
+    }
+
+    public static TimeSeries getHistoricalSeries(Period period) {
+        PeriodFilter periodFilter = new PeriodFilter(period);
+        String response = webClient.requestData(periodFilter, AssetsManager.getCurrenciesList().getCurrenciesPairsQuery()).body()
+                .toString();
+        HistoricalDataAdapter hsDataAdapter = new HistoricalDataAdapter(response);
+        TimeSeries timeSeries = new TimeSeries(periodFilter.getParam());
         timeSeries.setDataSeries(hsDataAdapter.createList());
         return timeSeries;
     }
