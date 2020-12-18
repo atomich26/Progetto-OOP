@@ -41,6 +41,6 @@ public class LiveSeries extends DataSeries<LiveQuote>{
 
     @JsonProperty("last_refreshed")
     public String getTimeStampAsString() {
-        return DateParser.getDateAsString(timeStamp,"yyyy-MM-dd-HH:mm");
+        return DateParser.getDateAsString(timeStamp,DateParser.YYYYMMDDHHmmss);
     }
 }

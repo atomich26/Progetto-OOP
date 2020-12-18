@@ -18,6 +18,7 @@ public class DateParser {
 
     public static String YYYYMMDD = "yyyy-MM-dd";
     public static String YYYYMMDDHHmm = "yyyy-MM-dd-HH:mm";
+    public static String YYYYMMDDHHmmss = "yyyy-MM-dd-HH:mm:ss";
     public static SimpleDateFormat dateFormat = new SimpleDateFormat();
 
     /**
