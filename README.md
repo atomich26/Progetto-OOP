@@ -21,9 +21,9 @@ La realizzazione del software ha necessitato di
 ### Modellazione dati e OOP<a name="modellazione"><a/>
 La modellazione dei dati si è basata sull'aspetto concettuale che essi rappresentano. Dovendo gestire dei dati che hanno una relazione con coppie di valute, si è pensato di creare un oggetto <code>CurrencyPair</code> per far riferimento a tutti gli oggetti sopra citati.
 ### Diagrammi UML <a name="uml">
-<img src="/uml/liveDiagram.png" alt="LiveQuoteDiagram" width="500">
-<img src="/uml/historicalDiagram.png" alt="LiveQuoteDiagram" width="500">
-<img src="/uml/statsDiagram.png" alt="LiveQuoteDiagram" width="500">
+<img src="/uml/liveDiagram.png" alt="LiveQuoteDiagram" width="1000">
+<img src="/uml/historicalDiagram.png" alt="LiveQuoteDiagram" width="1000">
+<img src="/uml/statsDiagram.png" alt="LiveQuoteDiagram" width="1000">
 ## Guida per l'uso<a name="guida"></a>
 > Vai al paragrafo: <a href="#endpoints">Endpoints</a>
 ### Compilazione e primo avvio 
