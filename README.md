@@ -104,10 +104,53 @@ Il web server si avvierà e sarà in ascolto su <code>http://localhost:8080/</co
 ### Endpoints <a name="endpoints"></a>
 Gli endpoints del web service permettono di ottenere i dati richiesti con precisioni ed affidabilità, pertanto è utile leggere la documentazione prima del loro utilizzo. Il web service mette a disposizione tre rotte principali su cui ottenere dati di diverso tipo:
 
-><code>GET metadata</code>
 
+#### Endpoints multi-purpose
+Di seguito sono elencati i possibili endpoints per ottenere le statistiche:
 
+>**<code>GET /metadata</code>**
+Questa rotta restituisce i metadati relativi alle serie di dati elaborati.
 
+>**<code>GET /available</code>**
+Tramite questa rotta è possibile ottenere la lista delle valute disponibili per le API.
+
+#### Endpoints per le quotazioni aggiornate
+Di seguito sono elencati i possibili endpoints per ottenere serie di di quotazioni aggiornate ogni 10 minuti, con dati statistici.
+
+* **<code>GET /live/overview</code>**
+Tramite questa rotta è possibile ottenere una serie delle quotazioni di tutte le coppie di valute disponibili, con dati statistici.
+
+*  **<code>GET /live/currencies</code>**
+Tramite questa rotta è possibile ottenere una serie delle quotazioni di coppie di valute che hanno come valuta base il valore inserito nel parametro richiesto <code>base</code>.
+
+*  **<code>GET /live/quotes</code>**
+Tramite questa rotta è possibile ottenere una serie delle quotazioni di coppie di valute che hanno come valuta base il valore inserito nel parametro richiesto<code>base</code> e come valute quotate il valore del parametro richiesto <code>quote</code>.
+*Per il parametro <code>quote</code> è possibile aggiungere più valori seperati da una virgola.
+
+Un esempio di dati resituiti da queste rotte è il seguente: 
+><code></code>
+
+#### Endpoints per le serie storiche
+Di seguito sono elencati i possibili endpoints per ottenere lserie storiche di dati:
+
+>**<code>GET /historical/currency</code>**
+
+>**<code>GET /historical/quote</code>**
+
+Un esempio di dati resituiti da queste rotte è il seguente: 
+><code></code>
+
+#### Endpoints per le statistiche
+Di seguito sono elencati i possibili endpoints per ottenere le statistiche:
+
+>**<code>GET /statistics/lastweeks</code>**
+
+>**<code>GET /statistics/lastmonth</code>**
+
+>**<code>GET /statistics/currency</code>**
+
+Un esempio di dati resituiti da queste rotte è il seguente: 
+><code></code>
 
 ## Riconoscimenti <a name="riconoscimenti"></a>
 Tutto il materiale presente in questa repository è stato realizzato interamente da <a href="https://www.linkedin.com/in/michele-bevilacqua-732611183/">Michele Bevilacqua</a>.
