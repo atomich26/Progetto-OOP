@@ -99,10 +99,14 @@ Il progetto non dispone di un file <code>.jar</code> pronto per l'uso, quindi sa
 Se la compilazione avrà buon esito, sarà possibile trovare il file <code>.jar</code> da eseguire, all'interno della cartella <code>target</code>. A questo punto, sempre da terminale, digitare il comando <code>java -jar /target/nomedelsoftware.jar</code>.
 Il web server si avvierà e sarà in ascolto su <code>http://localhost:8080/</code>.
 
->Per cambiare l'access token è necessario modificare il file *config.json* e ricompilare il software.
+> Per cambiare l'access token è necessario modificare il file *config.json* e ricompilare il software.
 
 ### Endpoints <a name="endpoints"></a>
-Gli endpoints del web service permettono di ottenere i dati richiesti con precisioni ed affidabilità
+Gli endpoints del web service permettono di ottenere i dati richiesti con precisioni ed affidabilità, pertanto è utile leggere la documentazione prima del loro utilizzo. Il web service mette a disposizione tre rotte principali su cui ottenere dati di diverso tipo:
+
+><code>GET metadata</code>
+
+
 
 
 ## Riconoscimenti <a name="riconoscimenti"></a>
