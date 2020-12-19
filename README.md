@@ -106,51 +106,60 @@ Gli endpoints del web service permettono di ottenere i dati richiesti con precis
 
 
 #### Endpoints multi-purpose
-Di seguito sono elencati i possibili endpoints per ottenere le statistiche:
+Di seguito sono elencati i possibili endpoints per ottenere dati di vario genere:
 
->**<code>GET /metadata</code>**
+* **<code>GET /metadata</code>**
 Questa rotta restituisce i metadati relativi alle serie di dati elaborati.
 
->**<code>GET /available</code>**
-Tramite questa rotta è possibile ottenere la lista delle valute disponibili per le API.
+* **<code>GET /available</code>**
+Tramite questa rotta è possibile ottenere la lista delle valute disponibili, con relativo codice ISO 4217 da utilizzare nelle chiamate sulle altre rotte.
 
 #### Endpoints per le quotazioni aggiornate
-Di seguito sono elencati i possibili endpoints per ottenere serie di di quotazioni aggiornate ogni 10 minuti, con dati statistici.
+Di seguito sono elencati i possibili endpoints per ottenere serie di di quotazioni aggiornate ogni 10 minuti, con dati statistici. I valori da inserire nei parametri <code>base</code> e <code>quote</code>, sono i codici ISO 4217 delle valute disponibili.
 
 * **<code>GET /live/overview</code>**
 Tramite questa rotta è possibile ottenere una serie delle quotazioni di tutte le coppie di valute disponibili, con dati statistici.
 
-*  **<code>GET /live/currencies</code>**
+* **<code>GET /live/currencies</code>**
 Tramite questa rotta è possibile ottenere una serie delle quotazioni di coppie di valute che hanno come valuta base il valore inserito nel parametro richiesto <code>base</code>.
 
-*  **<code>GET /live/quotes</code>**
+* **<code>GET /live/quotes</code>**
 Tramite questa rotta è possibile ottenere una serie delle quotazioni di coppie di valute che hanno come valuta base il valore inserito nel parametro richiesto<code>base</code> e come valute quotate il valore del parametro richiesto <code>quote</code>.
-*Per il parametro <code>quote</code> è possibile aggiungere più valori seperati da una virgola.
 
-Un esempio di dati resituiti da queste rotte è il seguente: 
-><code></code>
+*Per il parametro <code>quote</code> è possibile aggiungere più valori seperati da una virgola, per esempio: CAD,EUR,USD*
 
 #### Endpoints per le serie storiche
-Di seguito sono elencati i possibili endpoints per ottenere lserie storiche di dati:
+Di seguito sono elencati i possibili endpoints per ottenere serie storiche di quotazioni di coppie di valute di un determinato periodo di tempo, specificato nel body delle richieste. I valori da inserire nei parametri <code>base</code> e <code>quote</code>, sono i codici ISO 4217 delle valute disponibili.
 
->**<code>GET /historical/currency</code>**
+* **<code>POST /historical/currency</code>**
+Tramite questa richiesta è possibile ottenere serie storiche di quotazioni di coppie di valute che hanno come valuta base il valore inserito nel parametro richiest <code>base</code>. Per il body, visualizza la fine del paragrafo.
 
->**<code>GET /historical/quote</code>**
+* **<code>POST /historical/quote</code>**
+Tramite questa rotta è possibile ottenere una serie storica delle quotazioni di coppie di valute che hanno come valuta base il valore inserito nel parametro richiesto<code>base</code> e come valute quotate il valore del parametro richiesto <code>quote</code>.
 
-Un esempio di dati resituiti da queste rotte è il seguente: 
-><code></code>
+*Per il parametro <code>quote</code> è possibile aggiungere più valori seperati da una virgola, per esempio: CAD,EUR,USD*
+
+>Il body richiesto deve rispettare la seguente struttura: 
+``{
+    "start_date" : "yyyy-MM-dd",
+    "end_date" : "yyyy-MM-dd"
+}
 
 #### Endpoints per le statistiche
-Di seguito sono elencati i possibili endpoints per ottenere le statistiche:
+Di seguito sono elencati i possibili endpoints per ottenere le statistiche sulle quotazioni. I valori da inserire nei parametri <code>base</code> e <code>quote</code>, sono i codici ISO 4217 delle valute disponibili.
 
->**<code>GET /statistics/lastweeks</code>**
+* **<code>GET /statistics/lastweeks</code>**
+Tramite questa richiesta è possibile ottenere una serie di statistiche sulle quotazioni, di tutte le coppie di valute, del periodo corrispondente alle due settimane precedenti alla data attuale.
 
->**<code>GET /statistics/lastmonth</code>**
+* **<code>GET /statistics/lastmonth</code>**
+Tramite questa richiesta è possibile ottenere una serie di statistiche sulle quotazioni, di tutte le coppie di valute, del periodo corrispondente al mese precedente alla data attuale.
 
->**<code>GET /statistics/currency</code>**
+* **<code>POST /statistics/currency</code>**
+Tramite questa richiesta è possibile ottenere una serie di statistiche su un tipo di valore delle quotazioni di coppie di valute selezionate con gli stessi parametri <code>base</code> e <code>quote</code> delle chiamate per le serie storiche.
 
-Un esempio di dati resituiti da queste rotte è il seguente: 
-><code></code>
+Una lista dei tipi di campo disponibili è presente nei metadati.
+
+Per visualizzare la struttura del body, consulta la sezione relativa alle chiamate per le serie storiche.
 
 ## Riconoscimenti <a name="riconoscimenti"></a>
 Tutto il materiale presente in questa repository è stato realizzato interamente da <a href="https://www.linkedin.com/in/michele-bevilacqua-732611183/">Michele Bevilacqua</a>.
