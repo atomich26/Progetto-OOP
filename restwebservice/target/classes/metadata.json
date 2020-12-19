@@ -25,5 +25,54 @@
             "content": "Variazione percentuale tra il valore aggiornato e quello precedente.",
             "type": "double"
         }
+    ],
+    "historicalquote" : [
+        {
+            "alias": "currency",
+            "content": "Codice ISO 4217 della coppia di valute.",
+            "type": "string"
+        },
+        {
+            "alias": "high",
+            "content": "Valore della quotazione più alto raggiunto in giornata.",
+            "type": "double"
+        },
+        {
+            "alias": "low",
+            "content": "Valore della quotazione più basso raggiunto in giornata",
+            "type": "double"
+        },
+        {
+            "alias": "open",
+            "content": "Valore di apertura della quotazione del giorno lavorativo",
+            "type": "double"
+        },
+        {
+            "alias": "close",
+            "content": "Valore di chiusura della quotazione del giorno lavorativo",
+            "type": "double"
+        }
+    ],
+    "statistics" : [
+        {
+            "alias": "worst",
+            "content": "Coppia di valute di un set di dati che ha perso di più",
+            "type": "json object"
+        },
+        {
+            "alias": "best",
+            "content": "Coppia di valute di un set di dati che ha guadagnato di più",
+            "type": "double"
+        },
+        {
+            "alias": "average",
+            "content": "Valore della media delle quotazioni di una coppia di valute",
+            "type": "double"
+        },
+        {
+            "alias": "variance",
+            "content": "Valore della varianza delle quotazione di una coppia di valute",
+            "type": "double"
+        }
     ]
 }
