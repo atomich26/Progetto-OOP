@@ -16,7 +16,7 @@ import it.michdev.restwebservice.utils.time.Period;
  * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.filter.IFilter
- * @see it.michdev.restwebservice.utils.filterCurrencyFilter
+ * @see it.michdev.restwebservice.utils.filter.CurrencyFilter
  */
 public class PeriodFilter implements IFilter<Period> {
 

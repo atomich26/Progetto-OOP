@@ -63,8 +63,9 @@ public class FxMarketClient extends WebClient {
      * Effettua una richiesta HTTP per scaricare i dati sulle valute di un determinato
      * intervallo di tempo.
      * 
-     * @param date <code>Calendar</code> intervallo di tempo di cui si vogliono i
+     * @param periodFilter filtro del periodo di cui si vogliono i
      *             dati.
+     * @param quoteCurrenciesQuery query delle coppie di valute di cui si vuole ottenere i dati.
      * @return <code>HttpResponse</code> contenente i dati ottenuti.
      */
     public HttpResponse<String> requestData(PeriodFilter periodFilter, String quoteCurrenciesQuery) {

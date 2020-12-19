@@ -54,12 +54,10 @@ public class JsonParser {
      * Legge il contenuto di un file <code>json</code> e lo deserializza
      * nell'oggetto definito dall'argomento <code>valueType</code>.
      * 
-     * @param file      file <code>json</code> da deserializzare.
+     * @param fileSource      file <code>json</code> da deserializzare.
      * @param valueType tipo dell'oggetto che si vuole deserializzare.
-     * @return un oggetto di tipo generico <code>T</code> passato come argomento.
-     * @throws JsonProcessingException eccezione generata in presenza di errori
-     *                                 durante il parsing.
-     */
+     * @param <T> parametro del tipo dell'oggetto da deserializzare 
+     * @return un oggetto di tipo generico <code>T</code> passato come argomento.*/
     public static <T> T deserialize(File fileSource, Class<T> valueType) {
         try {
             return objMapper.readValue(fileSource, valueType);
@@ -67,13 +65,14 @@ public class JsonParser {
             return null;
         }
     }
-
+    
     /**
      * Legge il contenuto di un stringa <code>json</code> e la converte nell'oggetto
      * definito dall'argomento <code>valueType</code>.
      * 
      * @param source    stringa <code>json</code> da deserializzare.
      * @param valueType tipo dell'oggetto che si vuole deserializzare.
+     * @param <T> parametro del tipo dell'oggetto da deserializzare.
      * @return un oggetto di tipo generico <code>T</code> passato come argomento.
      * @throws JsonProcessingException eccezione generata in presenza di errori
      *                                 durante il parsing.
@@ -90,9 +89,8 @@ public class JsonParser {
      * @param source    stringa <code>json</code> del contenuto da deserialzzare.
      * @param fieldName nome del campo di cui si vuole deserializzare il contenuto.
      * @param valueType tipo dell'oggetto che si vuole deserializzare.
+     * @param <T> tipo dell'oggetto da deserializzare.
      * @return un oggetto di tipo generico <code>T</code> passato come argomento.
-     * @throws JsonProcessingException eccezione generata in presenza di errori
-     *                                 durante il parsing.
      */
     public static <T> T deserialize(String source, String fieldName, TypeReference<T> valueType) {
         JsonNode node;

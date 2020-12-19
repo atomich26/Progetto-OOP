@@ -25,7 +25,6 @@ public final class GlobalExceptionHandler {
      * 
      * @param e eccezione generata che si vuole gestire.
      * @return oggetto <code>ResponseEntity</code> di <code>ErrorResponse</code>
-     * @see it.michdev.restwebservice.exception.InternalServerException
      */
     @ExceptionHandler({ IOException.class, FileNotFoundException.class })
 
@@ -65,7 +64,7 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>IllegalDatePatternException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return <code>ResponseEntity<code>ErrorResponse></code>
+     * @return <code>ResponseEntity</code> di <code>ErrorResponse></code>
      * @see it.michdev.restwebservice.exception.IllegalDatePatternException
      */
     @ExceptionHandler(IllegalDatePatternException.class)
@@ -78,7 +77,7 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>DataNotFoundException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return <code>ResponseEntity<code>ErrorResponse></code>
+     * @return <code>ResponseEntity</code> di <code>ErrorResponse></code>
      * @see it.michdev.restwebservice.exception.DataNotFoundException
      */
     @ExceptionHandler(DataNotFoundException.class)
@@ -90,7 +89,7 @@ public final class GlobalExceptionHandler {
      * Questo metodo gestisce l'eccezione <code>InvalidStatsFieldException</code>.
      * 
      * @param e eccezione generata che si vuole gestire.
-     * @return <code>ResponseEntity<code>ErrorResponse></code>
+     * @return <code>ResponseEntity</code> di <code>ErrorResponse</code>
      * @see it.michdev.restwebservice.exception.InvalidStatsFieldException
      */
     @ExceptionHandler(DataNotFoundException.class)

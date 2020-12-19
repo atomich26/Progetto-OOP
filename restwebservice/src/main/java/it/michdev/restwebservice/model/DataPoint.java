@@ -72,7 +72,7 @@ public class DataPoint {
     /**
      * Imposta il dataset dei valori storici delle quotazioni.
      * 
-     * @param historicalQuote dataset delle quotazioni storiche
+     * @param historicalQuotes dataset delle quotazioni storiche
      */
     public void setHistoricalQuote(ArrayList<HistoricalQuote> historicalQuotes) {
         this.historicalQuotes = historicalQuotes;

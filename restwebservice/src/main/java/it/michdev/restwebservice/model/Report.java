@@ -46,7 +46,7 @@ public class Report extends CurrencyPair implements ISortable {
      * Imposta la differenza tra il valore inziale e quello finale della quotazione
      * di un determinato periodo
      * 
-     * @param change
+     * @param change valore della differenza calcolata tra due valori.
      */
     public void setChange(BigDecimal change) {
         this.change = change;

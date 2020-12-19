@@ -80,6 +80,7 @@ public final class RequestController {
      * statistiche
      * 
      * @param baseCurrency valuta di base
+     * @throws CurrencyNotFoundException eccezione generata in caso di valute scelte non disponibili
      * @return <code>ResponseEntity</code> di <code>LiveSeries</code>
      */
     @RequestMapping(value = "/live/currency", method = RequestMethod.GET, produces = "application/json")
@@ -138,6 +139,9 @@ public final class RequestController {
      * @param baseCurrency    valuta di base
      * @param quoteCurrencies elenco di valute quotate
      * @param bodyRequest     body della richiesta HTTP
+     * @throws CurrencyNotFoundException eccezione generata in caso di valute selezionate non valide
+     * @throws InvalidPeriodException eccezione generata in caso del periodo scelto non valido
+     * @throws IllegalDatePatternException eccezione generata in caso di date mal formattate
      * @return <code>ResponseEntity</code> di <code>TimeSeries</code>
      * 
      */
