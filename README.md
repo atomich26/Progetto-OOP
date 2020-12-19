@@ -26,11 +26,13 @@ La modellazione dei dati si è basata sull'aspetto concettuale che essi rapprese
 <img src="/uml/useCaseDiagram.png" alt="useCaseDiagram" width="1000"></img>
 
 #### Diagramma di sequenza per ottenere le quotazioni aggiornati
-Il diagramma seguente fa riferimento alle chiamate <code> **GET** /live/currency</code>, <code> **GET** /live/quotes</code>  per ottenere serie di quotazioni aggiornate ogni 10 minuti, eventualmente filtrate secondo oppurtuni parametri, con dati statistici.  Per saperne di più, vai a <a href="#endpoints">endpoints</a>
+Il diagramma seguente fa riferimento alle chiamate <code> **GET** /live/currency</code>, <code> **GET** /live/quotes</code>  per ottenere serie di quotazioni aggiornate ogni 10 minuti, eventualmente filtrate secondo oppurtuni parametri, con dati statistici.  Per saperne di più, vai a <a href="#endpoints">endpoints</a>.
+
 <img src="/uml/liveDiagram.png" alt="LiveQuoteDiagram" width="1000"></img>
 
 #### Diagramma di sequenza per ottenere una serie di quotazioni storiche.
-Il diagramma seguente fa riferimento alle chiamate <code> **GET** /historical/currency</code>, <code> **GET** /historical/quotes</code>  per ottenere una serie di quotazioni storiche riferite ad un periodo, eventualmente filtrate secono oppurtuni parametri. Per saperne di più, vai a <a href="#endpoints">endpoints</a>
+Il diagramma seguente fa riferimento alle chiamate <code> **GET** /historical/currency</code>, <code> **GET** /historical/quotes</code>  per ottenere una serie di quotazioni storiche riferite ad un periodo, eventualmente filtrate secondo oppurtuni parametri. Per saperne di più, vai a <a href="#endpoints">endpoints</a>.
+
 <img src="/uml/historicalDiagram.png" alt="HistoricalQuoteDiagram" width="1000"></img>
 
 #### Diagramma di sequenza per elaborare le statistiche
