@@ -5,11 +5,11 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 /**
- * La classe <b>DecimalParser</b> è utilizzata per convertire i valori delle
- * valute in <code>Double</code> in oggetti <code>BigDecimal</code> per una
- * maggiore precisione.
+ * La classe <code>DecimalParser</code> implementa metodi per convertire i valori
+ * delle valute in <code>Double</code> in oggetti <code>BigDecimal</code> per
+ * una maggiore precisione.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.parser.DateParser
  * @see it.michdev.restwebservice.utils.parser.JsonParser

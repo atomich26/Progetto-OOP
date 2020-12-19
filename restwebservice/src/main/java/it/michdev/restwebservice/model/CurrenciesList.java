@@ -11,8 +11,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * eventuali casi crea una stringa di coppie di valute usate per effettuare
  * chiamate all'endpoint fxmarketapi.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.core.AssetsManager
  */
 public class CurrenciesList {
 
@@ -21,7 +22,9 @@ public class CurrenciesList {
 
     /**
      * Costruttore per la classe <code>CurrenciesList</code>
-     * @param currenciesMap <code>HashMap</code> ottenuto dal parsing del file currencies.json
+     * 
+     * @param currenciesMap <code>HashMap</code> ottenuto dal parsing del file
+     *                      currencies.json
      */
     public CurrenciesList(@JsonProperty("currencies") HashMap<String, String> currenciesMap) {
         this.currenciesMap = currenciesMap;
@@ -30,6 +33,7 @@ public class CurrenciesList {
 
     /**
      * Restituisce un HashMap contenente le valute disponibili.
+     * 
      * @return lista di valute disponibili.
      */
     @JsonProperty("currencies")
@@ -38,8 +42,8 @@ public class CurrenciesList {
     }
 
     /**
-     * Restituisce una stringa contenente tutte le possibili coppie di valute,
-     * usata per effettuare richieste all'endpoint fxmarketapi.com
+     * Restituisce una stringa contenente tutte le possibili coppie di valute, usata
+     * per effettuare richieste all'endpoint fxmarketapi.com
      * 
      * @return stringa delle coppie di valute.
      */
@@ -49,7 +53,8 @@ public class CurrenciesList {
     }
 
     /**
-     * Crea la stringa per le coppie di valute utilizzata per effettuare richieste all'endpoin fxmarketapi.com.
+     * Crea la stringa per le coppie di valute utilizzata per effettuare richieste
+     * all'endpoin fxmarketapi.com.
      */
     @JsonIgnore
     private void createCurrenciesPairs() {

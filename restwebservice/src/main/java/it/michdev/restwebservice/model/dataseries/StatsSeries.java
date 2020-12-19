@@ -12,8 +12,9 @@ import it.michdev.restwebservice.utils.time.Period;
  * La classe <code>StatsSeries</code> rappresenta una serie di dati contenente
  * le statistiche calcolate per ogni coppia di valute.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.dataseries.DataSeries
  */
 @JsonPropertyOrder({ "start_date", "end_date", "trend", "data_series" })
 public class StatsSeries extends DataSeries<Report> {
@@ -47,6 +48,7 @@ public class StatsSeries extends DataSeries<Report> {
 
     /**
      * Imposta il dataset dei valori statistici calcolati per ogni coppia di valute.
+     * 
      * @param reportList dataset da associare.
      */
     @Override
@@ -58,6 +60,7 @@ public class StatsSeries extends DataSeries<Report> {
 
     /**
      * Restituisce la data iniziale del periodo associato alla serie di dati.
+     * 
      * @return stringa della data iniziale.
      */
     @JsonProperty("start_date")
@@ -65,8 +68,9 @@ public class StatsSeries extends DataSeries<Report> {
         return DateParser.getDateAsString(period.getStartDate(), DateParser.YYYYMMDD);
     }
 
-     /**
+    /**
      * Restituisce la data finale del periodo associato alla serie di dati.
+     * 
      * @return stringa della data iniziale.
      */
     @JsonProperty("end_date")
@@ -76,14 +80,17 @@ public class StatsSeries extends DataSeries<Report> {
 
     /**
      * Imposta il periodo associato alla serie di dati.
+     * 
      * @param period oggetto <code>Period</code> da associare.
      */
     public void setPeriod(Period period) {
         this.period = period;
     }
 
-     /**
-     * Restituisce un oggetto <code>Sort</code> contenente i dati statistici calcolati.
+    /**
+     * Restituisce un oggetto <code>Sort</code> contenente i dati statistici
+     * calcolati.
+     * 
      * @return <code>Sort</code>
      */
     @JsonProperty("trend")

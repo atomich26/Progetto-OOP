@@ -11,8 +11,9 @@ import it.michdev.restwebservice.utils.parser.DecimalParser;
  * raggiunto, il valore più alto, la quotazione di apertura e quella di
  * chiusura.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.CurrencyPair
  */
 @JsonPropertyOrder({ "currency", "open", "high", "low", "close" })
 public class HistoricalQuote extends CurrencyPair {

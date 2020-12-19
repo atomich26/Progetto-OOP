@@ -5,12 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import it.michdev.restwebservice.model.Report;
 
 /**
- * La classe <b>Sort</b> rappresenta l'operatore che svolge le operazioni di
- * ordinamento di oggetti <code>CurrencyPair</code> in base alla normale
- * differenza e alla differenza percentuale, restituendo un report sulle coppie
- * di valute che rispettivamente hanno guadagnato/perso di più.
+ * La classe <code>Sort</code> rappresenta l'operatore che svolge le operazioni
+ * di ordinamento di oggetti <code>ISortable</code> in base al valore statistico
+ * <i>differenza</i> e al valore della <i>differenza percentuale</i>,
+ * restituendo un report sulle coppie di valute che rispettivamente hanno
+ * guadagnato/perso di più.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.stats.sort.ISortable
  */
@@ -22,6 +23,7 @@ public class Sort<T extends ISortable> {
 
     /**
      * Costruttore per la classe <code>Sort</code>.
+     * 
      * @param dataListToSort set di dati da ordinare.
      */
     public Sort(ArrayList<T> dataListToSort) {
@@ -31,8 +33,9 @@ public class Sort<T extends ISortable> {
     }
 
     /**
-     * Ordina il set di dati che riceve come argomento del costruttore, ordina in modo crescente e seleziona 
-     * gli estremi assegnandoli ad un oggetto <code>Report</code>.
+     * Ordina il set di dati che riceve come argomento del costruttore, ordina in
+     * modo crescente e seleziona gli estremi assegnandoli ad un oggetto
+     * <code>Report</code>.
      */
     private void sortList() {
         // Ordina la lista
@@ -53,6 +56,7 @@ public class Sort<T extends ISortable> {
 
     /**
      * Restituisce il report della valuta peggiore
+     * 
      * @return <code>Report</code> della valuta peggiore.
      */
     @JsonProperty("worst")
@@ -62,6 +66,7 @@ public class Sort<T extends ISortable> {
 
     /**
      * Restituisce il report della valuta migliore.
+     * 
      * @return <code>Report</code> della valuta migliore.
      */
     @JsonProperty("best")

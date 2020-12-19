@@ -5,13 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * La classe <code>CurrencyPair</code> rappresenta un modello generico per
- * contenere i dati in relazione a due valute differenti. Le classi
+ * contenere dati di vari generi(quotazioni aggiornate, report ecc.) in relazione a due valute differenti. Le classi
  * <code>HistoricalQuote</code>,<code>LiveQuote</code> e <code>Report</code>
  * estendono CurrencyPair.
  * 
- * @version 1.0.0
- * @since 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.LiveQuote
+ * @see it.michdev.restwebservice.model.HistoricalQuote
+ * @see it.michdev.restwebservice.model.Report
  */
 public class CurrencyPair {
 

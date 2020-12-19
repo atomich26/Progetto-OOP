@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * La classe <code>JsonParser</code> mette a disposizione metodi per la
  * de/serializzazione dei dati formattati in file/stringhe <code>JSON</code>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.parser.DecimalParser
  * @see it.michdev.restwebservice.utils.parser.DateParser
@@ -52,7 +52,7 @@ public class JsonParser {
 
     /**
      * Legge il contenuto di un file <code>json</code> e lo deserializza
-     * nell'oggetto definito dall'argomento <code>valueType</code>
+     * nell'oggetto definito dall'argomento <code>valueType</code>.
      * 
      * @param file      file <code>json</code> da deserializzare.
      * @param valueType tipo dell'oggetto che si vuole deserializzare.
@@ -70,7 +70,7 @@ public class JsonParser {
 
     /**
      * Legge il contenuto di un stringa <code>json</code> e la converte nell'oggetto
-     * definito dall'argomento <code>valueType</code>
+     * definito dall'argomento <code>valueType</code>.
      * 
      * @param source    stringa <code>json</code> da deserializzare.
      * @param valueType tipo dell'oggetto che si vuole deserializzare.
@@ -85,7 +85,7 @@ public class JsonParser {
     /**
      * Legge il contenuto di un stringa <code>json</code> e deserializza il
      * contenuto di un campo nell'oggetto definito dall'argomento
-     * <code>valueType</code>
+     * <code>valueType</code>.
      * 
      * @param source    stringa <code>json</code> del contenuto da deserialzzare.
      * @param fieldName nome del campo di cui si vuole deserializzare il contenuto.

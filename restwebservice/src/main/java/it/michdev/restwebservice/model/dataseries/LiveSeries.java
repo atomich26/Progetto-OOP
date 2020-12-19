@@ -12,12 +12,13 @@ import it.michdev.restwebservice.utils.parser.DateParser;
 import it.michdev.restwebservice.utils.stats.sort.Sort;
 
 /**
- * La classe <code>LiveSeries</code> rappresenta una serie di dati contenente i valori
- * dei tassi di cambio aggiornati che possono essere associati ad una valuta o
- * meno.
+ * La classe <code>LiveSeries</code> rappresenta una serie di dati contenente i
+ * valori delle quotazioni aggiornate che possono essere associati ad una valuta
+ * o meno, con relative statistiche.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.dataseries.DataSeries
  */
 @JsonPropertyOrder({ "code", "name", "last_refreshed", "trend", "quotes" })
 @JsonInclude(Include.NON_NULL)
@@ -30,7 +31,7 @@ public class LiveSeries extends DataSeries<LiveQuote> {
     /**
      * Costruttore per la classe <code>LiveSeries</code>.
      * 
-     * @param baseCurrencyCode stringa da associare alla serie.
+     * @param baseCurrencyCode stringa della valuta da associare alla serie.
      */
     public LiveSeries(String baseCurrencyCode) {
         super(baseCurrencyCode);
@@ -47,6 +48,7 @@ public class LiveSeries extends DataSeries<LiveQuote> {
 
     /**
      * Restituisce un ArrayList di oggetti <code>LiveQuote</code>.
+     * 
      * @return <code>ArrayList</code>.
      */
     @Override
@@ -55,8 +57,9 @@ public class LiveSeries extends DataSeries<LiveQuote> {
         return this.liveQuoteList;
     }
 
-     /**
-     * Imposta la lista associata a questa serie.
+    /**
+     * Imposta la il set di dati associato a questa serie.
+     * 
      * @param dataList <code>ArrayList</code> da associare.
      */
     @Override
@@ -66,8 +69,9 @@ public class LiveSeries extends DataSeries<LiveQuote> {
             currenciesTrend = new Sort<LiveQuote>(dataList);
     }
 
-     /**
+    /**
      * Restituisce una stringa della data dell'ultimo aggiornamento dei dati.
+     * 
      * @return stringa della data.
      */
     @JsonProperty("last_refreshed")
@@ -75,8 +79,10 @@ public class LiveSeries extends DataSeries<LiveQuote> {
         return DateParser.getDateAsString(timeStamp, DateParser.YYYYMMDDHHmmss);
     }
 
-     /**
-     * Restituisce un oggetto <code>Sort</code> contenente i dati statistici calcolati.
+    /**
+     * Restituisce un oggetto <code>Sort</code> contenente i dati statistici
+     * calcolati.
+     * 
      * @return <code>Sort</code>
      */
     @JsonProperty("trend")

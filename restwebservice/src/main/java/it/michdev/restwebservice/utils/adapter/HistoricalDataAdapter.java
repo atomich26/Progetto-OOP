@@ -53,7 +53,7 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
         LinkedHashMap<String, LinkedHashMap<String, JsonNode>> parsedList;
         parsedList = JsonParser.deserialize(historicalResponse, "price", mapTypeRef);
 
-        for (Map.Entry<String, LinkedHashMap<String, JsonNode>> dataReport : responseList.entrySet()) {
+        for (Map.Entry<String, LinkedHashMap<String, JsonNode>> dataReport : parsedList.entrySet()) {
             DataPoint dataPoint;
             try {
                 dataPoint = new DataPoint(dataReport.getKey().toString());

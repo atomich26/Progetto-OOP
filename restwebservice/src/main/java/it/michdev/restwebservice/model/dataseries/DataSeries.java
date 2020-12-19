@@ -7,12 +7,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import it.michdev.restwebservice.core.AssetsManager;
 
 /**
- * La classe <code>DataSeries</code> rappresenta una serie di
- * specifici dati e relative statistiche tra cui, oggetti
+ * La classe <code>DataSeries</code> rappresenta il modello per una serie di
+ * specifici dati con relative statistiche tra cui, oggetti
  * <code>LiveQuote</code>, <code>HistoricalQuote</code> o <code>Report</code>.
  *
- * @version 1.0.0 
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.dataseries.LiveSeries
+ * @see it.michdev.restwebservice.model.dataseries.TimeSeries
+ * @see it.michdev.restwebservice.model.dataseries.StatsSeries
  */
 @JsonInclude(Include.NON_NULL)
 public abstract class DataSeries<T> {
@@ -28,8 +31,10 @@ public abstract class DataSeries<T> {
     }
 
     /**
-     * Costruttore per la classe DataSeries rappresentante una serie di dati associata ad una valuta.
-     * @param baseCurrencyCode nome della valuta associata 
+     * Costruttore per la classe DataSeries rappresentante una serie di dati
+     * associata ad una valuta.
+     * 
+     * @param baseCurrencyCode codice della valuta associata.
      */
     public DataSeries(String baseCurrencyCode) {
         this.baseCurrencyCode = baseCurrencyCode;
@@ -37,7 +42,8 @@ public abstract class DataSeries<T> {
     }
 
     /**
-     * Restituisce il codice della valuta associata.
+     * Restituisce il codice ISO 4217 della valuta associata.
+     * 
      * @return stringa del codice
      */
     @JsonProperty("code")
@@ -47,6 +53,7 @@ public abstract class DataSeries<T> {
 
     /**
      * Restituisce il nome della valuta associata.
+     * 
      * @return stringa del nome
      */
     @JsonProperty("name")
@@ -56,13 +63,15 @@ public abstract class DataSeries<T> {
 
     /**
      * Restituisce la lista di dati definiti dal parametro T.
-     * @return <code>ArrayList</code> di dati 
+     * 
+     * @return <code>ArrayList</code> di dati
      */
     public abstract ArrayList<T> getDataSeries();
 
     /**
-     * Imposta al modello un dataset di dati definiti dal parametro T.
-     * @param dataList set di dati. 
+     * Imposta alla serie, un dataset di dati definiti dal parametro T.
+     * 
+     * @param dataList set di dati.
      */
     public abstract void setDataSeries(ArrayList<T> dataList);
 }

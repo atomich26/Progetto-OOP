@@ -8,15 +8,16 @@ import it.michdev.restwebservice.model.LiveQuote;
 import it.michdev.restwebservice.utils.parser.JsonParser;
 
 /**
- * La classe <b>LiveDataAdapter</b> è utilizzata per creare
+ * La classe <code>LiveDataAdapter</code> è utilizzata per creare
  * <code>ArrayList</code> di oggetti <code>LiveQuote</code> dal parsing di dati
  * grezzi, scaricati dal <code>webclient</code>. Implementa l'interfaccia
  * <code>IDataAdapter</code>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.adapter.IDataAdapter
  * @see it.michdev.restwebservice.utils.adapter.HistoricalDataAdapter
+ * @see it.michdev.restwebservice.model.LiveQuote
  */
 public class LiveDataAdapter implements IDataAdapter<LiveQuote> {
 
@@ -24,7 +25,7 @@ public class LiveDataAdapter implements IDataAdapter<LiveQuote> {
     private TypeReference<LinkedHashMap<String, Double>> mapTypeRef;
 
     /**
-     * Costruttore per la classe <code>LiveDataAdapter</code>
+     * Costruttore per la classe <code>LiveDataAdapter</code>.
      * 
      * @param lastQuoteResponse     stringa <code>json</code> dei dati aggiornati
      *                              ottenuta dal webclient.
@@ -39,7 +40,7 @@ public class LiveDataAdapter implements IDataAdapter<LiveQuote> {
     }
 
     /**
-     * Il metodo <code>createList</code> crea oggetti <code>LiveQuote</code>
+     * Il metodo <code>createList()</code> crea oggetti <code>LiveQuote</code>
      * analizzando la stringa json ottenuta dal webclient e li aggiunge ad un
      * <code>ArrayList</code>.
      * 

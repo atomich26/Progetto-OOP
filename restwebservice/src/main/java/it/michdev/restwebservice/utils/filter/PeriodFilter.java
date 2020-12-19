@@ -12,13 +12,18 @@ import it.michdev.restwebservice.utils.time.Period;
  * Un <code>PeriodFilter</code> è un oggetto filtro che implementa l'interfaccia
  * <code>IFilter</code>. Verifica la validità dei parametri inseriti dall'utente
  * e li restituisce per filtrare i dati in base al periodo.
+ * 
+ * @version 1.1.0
+ * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.utils.filter.IFilter
+ * @see it.michdev.restwebservice.utils.filterCurrencyFilter
  */
 public class PeriodFilter implements IFilter<Period> {
 
     private Period selectedPeriod;
 
     /**
-     * Costruttore per la classe <code>Period</code>
+     * Costruttore per la classe <code>Period</code>.
      * 
      * @param period periodo filtro.
      */
@@ -27,7 +32,8 @@ public class PeriodFilter implements IFilter<Period> {
     }
 
     /**
-     * Costruttore per la classe <code>PeriodFilter</code>.
+     * Costruttore per la classe <code>PeriodFilter</code> che ha come argomento il
+     * body della riciesta HTTP da parsare.
      * 
      * @param bodyRequest stringa del body inoltrato con le chiamate HTTP.
      * @throws InvalidPeriodException      eccezione generata in caso di periodi non

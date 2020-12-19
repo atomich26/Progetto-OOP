@@ -9,10 +9,12 @@ import it.michdev.restwebservice.utils.stats.sort.ISortable;
 
 /**
  * La classe <code>Report</code> rappresenta un riepilogo di dati statistici
- * calcolati sui valori di una specifica coppia di valute.
+ * calcolati sui valori delle quotazioni(periodiche e non) di una specifica
+ * coppia di valute.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.CurrencyPair
  */
 @JsonInclude(Include.NON_NULL)
 @JsonPropertyOrder({ "currency", "average", "variance", "change", "ptc_change", })
@@ -22,6 +24,7 @@ public class Report extends CurrencyPair implements ISortable {
 
     /**
      * Costruttore per la classe <code>Report</code>.
+     * 
      * @param currencyPairCode codice ISO 4217 della coppia di valute asscociata.
      */
     public Report(String currencyPairCode) {
@@ -29,7 +32,9 @@ public class Report extends CurrencyPair implements ISortable {
     }
 
     /**
-     * Restituisce la differenza tra il valore inziale e quello finale di un determinato periodo.
+     * Restituisce la differenza tra il valore inziale e quello finale di un
+     * determinato periodo.
+     * 
      * @return oggetto <code>BigDecimal</code>.
      */
     @JsonProperty("change")
@@ -38,15 +43,19 @@ public class Report extends CurrencyPair implements ISortable {
     }
 
     /**
-     * Imposta la differenza tra il valore inziale e quello finale della quotazione di un determinato periodo
+     * Imposta la differenza tra il valore inziale e quello finale della quotazione
+     * di un determinato periodo
+     * 
      * @param change
      */
     public void setChange(BigDecimal change) {
         this.change = change;
     }
 
-     /**
-     * Restituisce la differenza tra il valore inziale e quello finale  della quotazione di un determinato periodo.
+    /**
+     * Restituisce la differenza tra il valore inziale e quello finale della
+     * quotazione di un determinato periodo.
+     * 
      * @return oggetto <code>BigDecimal</code>.
      */
     @Override
@@ -56,15 +65,19 @@ public class Report extends CurrencyPair implements ISortable {
     }
 
     /**
-     * Imposta la variazione percentuale tra il valore finale e quello iniziale della quotazione di un determinato periodo
+     * Imposta la variazione percentuale tra il valore finale e quello iniziale
+     * della quotazione di un determinato periodo
+     * 
      * @param ptcChange oggetto <code>BigDecimal</code>
      */
     public void setPtcChange(BigDecimal ptcChange) {
         this.ptcChange = ptcChange;
     }
 
-     /**
-     * Restituisce la varianza dei valori della quotazione di un determinato periodo.
+    /**
+     * Restituisce la varianza dei valori della quotazione di un determinato
+     * periodo.
+     * 
      * @return oggetto <code>BigDecimal</code>.
      */
     @JsonProperty("variance")
@@ -72,16 +85,18 @@ public class Report extends CurrencyPair implements ISortable {
         return this.variance;
     }
 
-  /**
+    /**
      * Imposta la varianza dei valori della quotazione di un determinato periodo
+     * 
      * @param variance oggetto <code>BigDecimal</code>
      */
     public void setVariance(BigDecimal variance) {
         this.variance = variance;
     }
 
-     /**
+    /**
      * Restituisce la media dei valori della quotazione di un determinato periodo.
+     * 
      * @return oggetto <code>BigDecimal</code>.
      */
     @JsonProperty("average")
@@ -91,6 +106,7 @@ public class Report extends CurrencyPair implements ISortable {
 
     /**
      * Imposta la media dei valori della quotazione di un determinato periodo
+     * 
      * @param average oggetto <code>BigDecimal</code>
      */
     public void setAverage(BigDecimal average) {

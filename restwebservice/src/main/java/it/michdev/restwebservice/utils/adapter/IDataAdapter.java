@@ -3,11 +3,11 @@ package it.michdev.restwebservice.utils.adapter;
 import java.util.ArrayList;
 
 /**
- * L'interfaccia <b>IDataAdapter</b> definisce un <code>adapter</code> per
+ * L'interfaccia <code>IDataAdapter</code> definisce un <code>adapter</code> per
  * converite dati grezzi in oggetti di tipo <code>T</code> specificato come
  * parametro, per migliorare la gestione e la loro manipolazione.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.adapter.LiveDataAdapter
  * @see it.michdev.restwebservice.utils.adapter.HistoricalDataAdapter

@@ -6,11 +6,12 @@ import it.michdev.restwebservice.core.AssetsManager;
 import it.michdev.restwebservice.exception.CurrencyNotFoundException;
 
 /**
- * Un <b>CurrencyFilter</b> è un oggetto filtro che implementa l'interfaccia
- * <code>IFilter</code>. Verifica la validità dei parametri inseriti dall'utente
- * e li restituisce per filtrare i dati.in base alle valute selezionate.
+ * Un <code>CurrencyFilter</code> è un oggetto filtro che implementa
+ * l'interfaccia <code>IFilter</code>. Verifica la validità dei parametri
+ * inseriti dall'utente e li restituisce per filtrare le quotazione di coppie di
+ * valute in base alle valute selezionate.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.filter.IFilter
  * @see it.michdev.restwebservice.utils.filter.PeriodFilter

@@ -10,8 +10,9 @@ import java.util.ArrayList;
  * più importanti indici statistici come la media, la varianza, la differenza
  * percentuale e operazioni matematiche come la differenza tra due valori.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
+ * @see it.michdev.restwebservice.model.Report
  */
 public class StatisticalIndex {
 
@@ -20,7 +21,7 @@ public class StatisticalIndex {
      * 
      * @param baseValue    valore iniziale
      * @param changedValue valore finale
-     * @return oggetto <code>BigDecimal</code>
+     * @return <code>BigDecimal</code>
      */
     public static BigDecimal percentageChange(BigDecimal baseValue, BigDecimal changedValue) {
         try {
@@ -37,7 +38,7 @@ public class StatisticalIndex {
      * 
      * @param baseValue    minuendo
      * @param changedValue sottraendo
-     * @return oggetto <code>BigDecimal</code>
+     * @return <code>BigDecimal</code>
      */
     public static BigDecimal change(BigDecimal baseValue, BigDecimal changedValue) {
         BigDecimal change = changedValue.subtract(baseValue, MathContext.DECIMAL64);
@@ -48,7 +49,7 @@ public class StatisticalIndex {
      * Calcola la media di un set di dati di tipo <code>BigDecimal</code>.
      * 
      * @param dataList set di numeri con cui calcolare la media
-     * @return oggetto <code>BigDecimal</code>
+     * @return <code>BigDecimal</code>
      */
     public static BigDecimal average(ArrayList<BigDecimal> dataList) {
         try {
@@ -57,7 +58,7 @@ public class StatisticalIndex {
                 average = average.add(value);
             }
             average = average.divide(new BigDecimal(dataList.size()), MathContext.DECIMAL64);
-            return average.setScale(5,RoundingMode.HALF_EVEN);
+            return average.setScale(5, RoundingMode.HALF_EVEN);
         } catch (ArithmeticException e) {
             return new BigDecimal(0);
         }
@@ -67,7 +68,7 @@ public class StatisticalIndex {
      * Calcola la varianza di un set di dati di tipo <code>BigDecimal</code>.
      * 
      * @param dataList set di numeri con cui calcolare la varianza
-     * @return oggetto <code>BigDecimal</code>
+     * @return <code>BigDecimal</code>
      */
     public static BigDecimal variance(ArrayList<BigDecimal> dataList) {
         BigDecimal average = average(dataList).setScale(5, RoundingMode.HALF_EVEN);
@@ -75,8 +76,7 @@ public class StatisticalIndex {
 
         try {
             for (BigDecimal value : dataList) {
-                BigDecimal difference = change(average, value).setScale(5,
-                        RoundingMode.HALF_EVEN);
+                BigDecimal difference = change(average, value).setScale(5, RoundingMode.HALF_EVEN);
                 difference = difference.pow(2, MathContext.DECIMAL64);
                 variance = variance.add(difference);
             }

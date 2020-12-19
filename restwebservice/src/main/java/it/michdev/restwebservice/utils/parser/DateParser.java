@@ -6,10 +6,10 @@ import java.util.Calendar;
 import it.michdev.restwebservice.exception.IllegalDatePatternException;
 
 /**
- * La classe <b>DateParser</b> è utilizzata per convertire stringhe di date in
- * oggetti <code>Calendar</code> e viceversa.
+ * La classe <code>DateParser</code> implementa metodi per convertire stringhe di date
+ * in oggetti <code>Calendar</code> e viceversa.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.parser.DecimalParser
  * @see it.michdev.restwebservice.utils.parser.JsonParser

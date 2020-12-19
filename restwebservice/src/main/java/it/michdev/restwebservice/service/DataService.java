@@ -40,8 +40,9 @@ public final class DataService {
     public static Calendar lastUpdate;
 
     /**
-     * Crea un dataset locale in memoria per salvare i valori aggiornate delle
-     * valute e riutilizzarli per mostrarli all'utente.
+     * Crea un dataset locale in memoria per salvare i valori aggiornati delle
+     * quotazioni di tutte le coppie di valute disponibili e riutilizzarli per
+     * mostrarli all'utente.
      */
     public static void createDataSet() {
         // Scarica i dati aggiornati
@@ -64,7 +65,8 @@ public final class DataService {
     }
 
     /**
-     * Aggiorna i valori delle valute del dataset locale.
+     * Aggiorna i valori delle quotazioni di tutte le coppie di valute del dataset
+     * locale.
      */
     public static void updateDataSet() {
         // Scarica i dati aggiornati
@@ -83,8 +85,8 @@ public final class DataService {
     }
 
     /**
-     * Restituisce un riepilogo di tutti i tassi di cambio salvati nel dataset
-     * locale, con relative statistiche.
+     * Restituisce una serie di quotazioni di tutte le coppie di valute salvate nel
+     * dataset locale, con relative statistiche.
      * 
      * @return oggetto <code>LiveSeries</code>
      */
@@ -95,8 +97,8 @@ public final class DataService {
     }
 
     /**
-     * Restituisce un riepilogo di tutti i tassi di cambio di una specifica valuta,
-     * con relative statistiche.
+     * Restituisce una serie di quotazioni di coppie di valute che hanno una
+     * specifica valuta di base, con relative statistiche.
      * 
      * @param baseCurrency valuta di base dei dati da selezionare.
      * @return oggetto <code>LiveSeries</code>
@@ -111,8 +113,8 @@ public final class DataService {
     }
 
     /**
-     * Restituisce un riepilogo di tutti i tassi di cambio di una specifiche valute
-     * di base e di quotazione, con relativi dati statistici.
+     * Restituisce una serie di quotazioni di coppie di valute che comprendono le
+     * valute selezionate, passate come argomento, con relativi dati statistici.
      * 
      * @param baseCurrency    valuta di base dei dati da selezionare.
      * @param quoteCurrencies elenco di valute di quotazione.
@@ -120,17 +122,18 @@ public final class DataService {
      * @throws CurrencyNotFoundException eccezione generata in caso di mancata
      *                                   disponibilità delle valute scelte.
      */
-    public static LiveSeries getLiveQuoteSeries(String baseCurrency, Set<String> quotesCurrencies)
+    public static LiveSeries getLiveQuoteSeries(String baseCurrency, Set<String> quoteCurrencies)
             throws CurrencyNotFoundException {
-        CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency, quotesCurrencies);
+        CurrencyFilter currencyFilter = new CurrencyFilter(baseCurrency, quoteCurrencies);
         LiveSeries liveSeries = new LiveSeries(baseCurrency);
         liveSeries.setDataSeries(FilterService.filterLiveQuotes(currencyFilter, liveDataSet));
         return liveSeries;
     }
 
     /**
-     * Restituisce un riepilogo di un determinato perido, di tutti i tassi di cambio
-     * di una specifica valuta, con relative statistiche.
+     * Restituisce una serie storica, di un determinato periodo, di quotazioni di
+     * coppie di valute scelte che hanno come valuta di base, quella scelta
+     * dall'utente,con relative statistiche.
      * 
      * @param baseCurrency valuta di base dei dati da selezionare.
      * @param bodyRequest  body del filtro del periodo.
@@ -155,9 +158,9 @@ public final class DataService {
     }
 
     /**
-     * Restituisce un riepilogo dei valori di tutti i tassi di cambio di una
-     * specifica valuta di base e di quotazione, di un determinato periodo con
-     * relative statistiche.
+     * Restituisce una serie storica, di un determinato periodo, di quotazioni delle
+     * coppie di valute che soddisfano i parametri(valuta di base e valute quotate)
+     * definiti.
      * 
      * @param baseCurrency    valuta di base dei dati da selezionare.
      * @param quoteCurrencies elenco delle valute di quotazione.
@@ -183,8 +186,8 @@ public final class DataService {
     }
 
     /**
-     * Restituisce un riepilogo dei valori di tutti i tassi di cambio appartenenti
-     * al periodo selezionato.
+     * Restituisce una serie storica di quotazioni di tutte le coppie di valute di
+     * un determinato periodo.
      * 
      * @param period periodo dei dati da selezionare
      * @return oggetto <code>TimeSeries</code>
