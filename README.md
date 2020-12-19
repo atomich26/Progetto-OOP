@@ -49,6 +49,7 @@ Il diagramma seguente fa riferimento alle chiamate <code> **POST** /historical/c
 
 #### Diagramma di sequenza per elaborare le statistiche
 Il diagramma seguente fa riferimento alle chiamate <code> **GET** /statistics/lastweeks</code>, <code> **GET** statistics/lastmonth</code> e <code> **POST** statistics/currency</code>  per ottenere una serie di dati statistici, di un determinato periodo, per i campi *high*, *close*, *open*, *low*, selezionabili.  Per saperne di più, vai a <a href="#endpoints">endpoints</a>.
+
 <img src="/uml/StatisticsSequenceDiagram.png" alt="statsSequenceDiagram" width="100%"></img>
 
 #### Diagramma delle classi del package Controller
@@ -90,8 +91,19 @@ Il diagramma seguente fa riferimento alle chiamate <code> **GET** /statistics/la
 ## Guida per l'uso<a name="guida"></a>
 > Vai al paragrafo: <a href="#endpoints">Endpoints</a>
 ### Compilazione e primo avvio 
-La repository contiene tutto il necessario per compilare una propria versione del software in modo autonomo. Per fare ciò, è consigliabile avere delle conoscenze di base in MAVEN.
+Il progetto non dispone di un file <code>.jar</code> pronto per l'uso, quindi sarà necessario compilare autonomamente il software per il suo utilizzo procedendo per queste fasi:
+
+*  Scaricare il progetto dall'apposito pulsante su Github, in altro a destra
+*  Tramite terminale, recarsi nella cartella del progetto scaricato contenente l'eseguibile di Maven ed eseguire il comando     <code>mvn clean package</code>.
+
+Se la compilazione avrà buon esito, sarà possibile trovare il file <code>.jar</code> da eseguire, all'interno della cartella <code>target</code>. A questo punto, sempre da terminale, digitare il comando <code>java -jar /target/nomedelsoftware.jar</code>.
+Il web server si avvierà e sarà in ascolto su <code>http://localhost:8080/</code>.
+
+>Per cambiare l'access token è necessario modificare il file *config.json* e ricompilare il software.
+
 ### Endpoints <a name="endpoints"></a>
+Gli endpoints del web service permettono di ottenere i dati richiesti con precisioni ed affidabilità
+
 
 ## Riconoscimenti <a name="riconoscimenti"></a>
-Questo progetto è stato realizzato interamente da <a href="https://www.linkedin.com/in/michele-bevilacqua-732611183/">Michele Bevilacqua</a>.
+Tutto il materiale presente in questa repository è stato realizzato interamente da <a href="https://www.linkedin.com/in/michele-bevilacqua-732611183/">Michele Bevilacqua</a>.
