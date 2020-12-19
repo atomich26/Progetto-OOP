@@ -16,26 +16,30 @@ import it.michdev.restwebservice.model.dataseries.TimeSeries;
 import it.michdev.restwebservice.utils.stats.StatisticalIndex;
 
 /**
- * <b>StatisticsService</b> rappresenta un servizio dell'applicazione Spring per
- * l'elaborazione delle statistiche sul set di dati in ingresso.
+ * <code>StatisticsService</code> rappresenta un servizio dell'applicazione
+ * Spring per l'elaborazione delle statistiche sul set di dati in ingresso.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.stats.StatisticalIndex
+ * @see it.michdev.restwebservice.model.dataseries.StatsSeries
  */
 public final class StatisticsService {
 
     /**
      * Calcola gli indici statistici di un dataset(di un determinato periodo)
      * ottenuto tramite la classe <code>DataService</code>. Elabora i dati scelti
-     * dall'utente tramite il parametro <code>fieldName</code> degli oggetti <code>HistoricalQuote</code>.
+     * dall'utente tramite il parametro <code>fieldName</code> degli oggetti
+     * <code>HistoricalQuote</code>.
      * 
      * @param fieldName  campo dell'oggetto <code>Historical</code> che si vuole
      *                   prendere elaborare.
-     * @param timeSeries  dataset su cui si vogliono elaborare statistiche.
-     * @return  oggetto <code>StatsSeries</code> 
-     * @throws InvalidStatsFieldException   eccezione generata in presenza di errori al parametro <code>fieldName</code>.
-     * @throws DataNotFoundException    eccezione generata quando il download dei dati non resituisce un dataset valido.
+     * @param timeSeries dataset su cui si vogliono elaborare statistiche.
+     * @return oggetto <code>StatsSeries</code>
+     * @throws InvalidStatsFieldException eccezione generata in presenza di errori
+     *                                    al parametro <code>fieldName</code>.
+     * @throws DataNotFoundException      eccezione generata quando il download dei
+     *                                    dati non resituisce un dataset valido.
      */
     public static StatsSeries getCurrencyStats(String fieldName, TimeSeries timeSeries)
             throws InvalidStatsFieldException, DataNotFoundException {
@@ -46,7 +50,8 @@ public final class StatisticsService {
         LinkedHashMap<String, ArrayList<BigDecimal>> currencyValues = new LinkedHashMap<>();
         DataPoint firstDataPoint = timeSeries.getDataSeries().get(0);
 
-        // inizializza la lista con i nomi delle valute e i rispettivi ArrayList<BigDecimal>
+        // inizializza la lista con i nomi delle valute e i rispettivi
+        // ArrayList<BigDecimal>
         if (!timeSeries.getDataSeries().isEmpty()) {
             for (HistoricalQuote hsQuote : firstDataPoint.getHistoricalQuotes()) {
                 currencyValues.put(hsQuote.getCurrencyPair(), new ArrayList<BigDecimal>());
@@ -73,7 +78,7 @@ public final class StatisticsService {
         ArrayList<Report> reportList = new ArrayList<>();
         StatsSeries statsSeries = new StatsSeries(timeSeries.getPeriod());
 
-        //Crea gli oggetti report con i dati statistici calcolati
+        // Crea gli oggetti report con i dati statistici calcolati
         for (Map.Entry<String, ArrayList<BigDecimal>> value : currencyValues.entrySet()) {
             Report currencyReport = new Report(value.getKey());
             currencyReport.setAverage(StatisticalIndex.average(value.getValue()));
@@ -85,7 +90,7 @@ public final class StatisticsService {
             reportList.add(currencyReport);
         }
 
-        //crea un oggetto StatsSeries con le statistiche elaborate.
+        // crea un oggetto StatsSeries con le statistiche elaborate.
         statsSeries.setDataSeries(reportList);
         return statsSeries;
     }

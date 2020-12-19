@@ -27,6 +27,7 @@ public class DateParser {
      * 
      * @param dateToParse stringa della data da convertire.
      * @return <code>Calendar</code> della data passata come argomento.
+     * @throws IllegalDatePatternException eccezione generata in caso di date mal formattate
      */
     public static Calendar parseDate(String dateToParse) throws IllegalDatePatternException {
         try {

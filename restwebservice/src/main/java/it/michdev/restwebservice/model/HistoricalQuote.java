@@ -99,7 +99,7 @@ public class HistoricalQuote extends CurrencyPair {
     /**
      * Imposta il valore di chiusura della quotazione nel giorno associato.
      * 
-     * @param openValue valore da impostare
+     * @param closeValue valore da impostare
      */
     public void setCloseValue(Double closeValue) {
         this.closeValue = DecimalParser.parseDouble(closeValue);

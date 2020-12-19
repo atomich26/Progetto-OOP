@@ -16,9 +16,9 @@ public interface IDataAdapter<T> {
 
     /**
      * Crea un <code>ArrayList</code> di oggetti di tipo specificato come parametro
-     * <code>T</code>, ottenuti dopo averl creati con i dati grezzi.
+     * <code>T</code>, ottenuti dopo averli creati con i dati grezzi.
      * 
-     * @return <code>ArrayList <code>T</code>
+     * @return <code>ArrayList</code> di  <code>T</code>
      */
     public ArrayList<T> createList();
 }

@@ -138,12 +138,9 @@ public final class DataService {
      * @param baseCurrency valuta di base dei dati da selezionare.
      * @param bodyRequest  body del filtro del periodo.
      * @return oggetto <code>TimeSeries</code>
-     * @throws CurrencyNotFoundException  eccezione generata in caso di mancata
-     *                                    disponibilità delle valute scelte.
-     * @throws IllegaDatePatternException eccezione generata in caso di caso di date
-     *                                    mal formattate.
-     * @throws InvalidPeriodException     eccezione generata in caso di un periodo
-     *                                    non valido.
+     * @throws CurrencyNotFoundException  eccezione generata in caso di mancata disponibilità delle valute scelte.
+     * @throws IllegalDatePatternException eccezione generata in caso di caso di date mal formattate.
+     * @throws InvalidPeriodException     eccezione generata in caso di un periodo non valido.
      */
     public static TimeSeries getHistoricalSeries(String baseCurrency, String bodyRequest)
             throws InvalidPeriodException, IllegalDatePatternException, CurrencyNotFoundException {
@@ -168,7 +165,7 @@ public final class DataService {
      * @return oggetto <code>TimeSeries</code>
      * @throws CurrencyNotFoundException  eccezione generata in caso di mancata
      *                                    disponibilità delle valute scelte.
-     * @throws IllegaDatePatternException eccezione generata in caso di caso di date
+     * @throws IllegalDatePatternException eccezione generata in caso di caso di date
      *                                    mal formattate.
      * @throws InvalidPeriodException     eccezione generata in caso di un periodo
      *                                    non valido.
