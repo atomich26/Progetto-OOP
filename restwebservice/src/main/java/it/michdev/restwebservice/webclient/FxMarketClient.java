@@ -10,10 +10,10 @@ import it.michdev.restwebservice.utils.parser.DateParser;
 
 /**
  * La classe <code>FxMarketClient</code> estende <code>WebClient</code>.
- * Rappresenta un HTTP REST client al servizio offerto da fxmarketsapi.com ed
+ * Rappresenta un HTTP REST client del servizio offerto da <i>fxmarketsapi.com</i> ed
  * implementa i metodi per ottenere i dati necessari.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.webclient.WebClient
  */
@@ -25,6 +25,7 @@ public class FxMarketClient extends WebClient {
 
     /**
      * Costruttore per la classe <code>FxMarketClient</code>.
+     * Inizializza le variabili d'istanza utili per effettuare chiamate HTTP.
      */
     public FxMarketClient() {
         super("https://fxmarketapi.com");
@@ -33,10 +34,10 @@ public class FxMarketClient extends WebClient {
     }
 
     /**
-     * Effettua una chiamata per scaricare i dati sulle valute aggiornati in tempo
+     * Effettua una richiesta HTTP per scaricare i dati sulle valute aggiornati in tempo
      * reale.
      * 
-     * @return oggetto <code>HttpResponse</code> contenente i dati ottenuti.
+     * @return <code>HttpResponse</code> contenente i dati ottenuti.
      */
     public HttpResponse<String> requestData() {
         requestUri = UriComponentsBuilder.fromUriString(endpoint).path("apilive").queryParam("api_key", accessKey)
@@ -45,11 +46,11 @@ public class FxMarketClient extends WebClient {
     }
 
     /**
-     * Effettua una chiamata per scaricare i dati sulle valute in un determinato
-     * istante
+     * Effettua una richiesta HTTP per scaricare i dati sulle valute in un determinato
+     * istante di tempo.
      * 
      * @param date <code>Calendar</code> dell'istante di cui si vogliono i dati.
-     * @return oggetto <code>HttpResponse</code> contenente i dati ottenuti.
+     * @return <code>HttpResponse</code> contenente i dati ottenuti.
      */
     public HttpResponse<String> requestData(Calendar date) {
         requestUri = UriComponentsBuilder.fromUriString(endpoint).path("apihistorical").queryParam("api_key", accessKey)
@@ -59,12 +60,12 @@ public class FxMarketClient extends WebClient {
     }
 
     /**
-     * Effettua una chiamata per scaricare i dati sulle valute in un determinato
+     * Effettua una richiesta HTTP per scaricare i dati sulle valute di un determinato
      * intervallo di tempo.
      * 
      * @param date <code>Calendar</code> intervallo di tempo di cui si vogliono i
      *             dati.
-     * @return oggetto <code>HttpResponse</code> contenente i dati ottenuti.
+     * @return <code>HttpResponse</code> contenente i dati ottenuti.
      */
     public HttpResponse<String> requestData(PeriodFilter periodFilter, String quoteCurrenciesQuery) {
         requestUri = UriComponentsBuilder.fromUriString(endpoint).path("apitimeseries").queryParam("api_key", accessKey)
@@ -76,5 +77,4 @@ public class FxMarketClient extends WebClient {
                 .queryParam("interval", "daily").build().toUri();
         return downloadData(requestUri);
     }
-
 }

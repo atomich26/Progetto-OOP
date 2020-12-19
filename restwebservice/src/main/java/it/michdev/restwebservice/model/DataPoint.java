@@ -16,7 +16,7 @@ import it.michdev.restwebservice.utils.parser.DateParser;
 public class DataPoint {
 
     private Calendar date;
-    private ArrayList<HistoricalQuote> historicalQuote;
+    private ArrayList<HistoricalQuote> historicalQuotes;
 
     /**
      * Costruttore per la classe <code>DataPoint</code>.
@@ -27,7 +27,7 @@ public class DataPoint {
      */
     public DataPoint(String date) throws IllegalDatePatternException {
         this.date = DateParser.parseDate(date);
-        this.historicalQuote = new ArrayList<>();
+        this.historicalQuotes = new ArrayList<>();
     }
 
     /**
@@ -65,8 +65,8 @@ public class DataPoint {
      * @return <code>ArrayList</code> delle quotazioni storiche
      */
     @JsonProperty("quotes")
-    public ArrayList<HistoricalQuote> getHistoricalQuote() {
-        return this.historicalQuote;
+    public ArrayList<HistoricalQuote> getHistoricalQuotes() {
+        return this.historicalQuotes;
     }
 
     /**
@@ -74,7 +74,7 @@ public class DataPoint {
      * 
      * @param historicalQuote dataset delle quotazioni storiche
      */
-    public void setHistoricalQuote(ArrayList<HistoricalQuote> historicalQuote) {
-        this.historicalQuote = historicalQuote;
+    public void setHistoricalQuote(ArrayList<HistoricalQuote> historicalQuotes) {
+        this.historicalQuotes = historicalQuotes;
     }
 }

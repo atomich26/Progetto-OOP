@@ -3,11 +3,11 @@ package it.michdev.restwebservice.utils.time;
 import java.util.Calendar;
 
 /**
- * L'interfaccia <b>ITime</b> definisce i metodi implementati per tutti gli
+ * L'interfaccia <code>ITime</code> definisce il comportamento di tutti gli
  * oggetti che rappresentano un periodo di tempo, come la classe
  * <code>Period</code>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.time.Period
  */

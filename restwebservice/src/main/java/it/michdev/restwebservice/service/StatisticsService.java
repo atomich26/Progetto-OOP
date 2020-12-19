@@ -48,7 +48,7 @@ public final class StatisticsService {
 
         // inizializza la lista con i nomi delle valute e i rispettivi ArrayList<BigDecimal>
         if (!timeSeries.getDataSeries().isEmpty()) {
-            for (HistoricalQuote hsQuote : firstDataPoint.getHistoricalQuote()) {
+            for (HistoricalQuote hsQuote : firstDataPoint.getHistoricalQuotes()) {
                 currencyValues.put(hsQuote.getCurrencyPair(), new ArrayList<BigDecimal>());
             }
         } else
@@ -59,7 +59,7 @@ public final class StatisticsService {
         try {
             Method m = HistoricalQuote.class.getDeclaredMethod("get" + fieldName + "Value");
             for (DataPoint dataPoint : timeSeries.getDataSeries()) {
-                for (HistoricalQuote hsQuote : dataPoint.getHistoricalQuote()) {
+                for (HistoricalQuote hsQuote : dataPoint.getHistoricalQuotes()) {
                     BigDecimal num = (BigDecimal) m.invoke(hsQuote);
                     currencyValues.get(hsQuote.getCurrencyPair()).add(num);
                 }

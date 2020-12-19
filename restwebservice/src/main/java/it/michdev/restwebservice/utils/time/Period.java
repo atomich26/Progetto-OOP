@@ -3,10 +3,10 @@ package it.michdev.restwebservice.utils.time;
 import java.util.Calendar;
 
 /**
- * La classe <b>Period</b> rappresenta un periodo storico, compreso tra due
+ * La classe <code>Period</code> rappresenta un periodo storico, compreso tra due
  * date ben distinte. Implementa l'interfaccia <code>ITime</code>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.time.ITime
  */

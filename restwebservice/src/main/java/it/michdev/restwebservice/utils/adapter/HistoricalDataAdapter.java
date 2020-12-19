@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
 
 /**
  * La classe <b>HistoricalDataAdapter</b> è utilizzata per creare
- * <code>ArrayList</code> di oggetti <code>DataPoint</code> dal parsing di dati
+ * <code>ArrayList</code> di oggetti <code>DataPoint</code> effettuando il parsing di dati
  * grezzi, scaricati dal <code>webclient</code>. Implementa l'interfaccia
  * <code>IDataAdapter</code>.
  * 
@@ -20,6 +20,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.adapter.IDataAdapter
  * @see it.michdev.restwebservice.utils.adapter.HistoricalDataAdapter
+ * @see it.michdev.restwebservice.model.DataPoint
  */
 public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
 
@@ -49,8 +50,8 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
     @Override
     public ArrayList<DataPoint> createList() {
         ArrayList<DataPoint> dataPointList = new ArrayList<>();
-        LinkedHashMap<String, LinkedHashMap<String, JsonNode>> responseList;
-        responseList = JsonParser.deserialize(historicalResponse, "price", mapTypeRef);
+        LinkedHashMap<String, LinkedHashMap<String, JsonNode>> parsedList;
+        parsedList = JsonParser.deserialize(historicalResponse, "price", mapTypeRef);
 
         for (Map.Entry<String, LinkedHashMap<String, JsonNode>> dataReport : responseList.entrySet()) {
             DataPoint dataPoint;
@@ -62,7 +63,7 @@ public class HistoricalDataAdapter implements IDataAdapter<DataPoint> {
                     historicalQuote.setLowValue(currency.getValue().get("low").asDouble());
                     historicalQuote.setCloseValue(currency.getValue().get("close").asDouble());
                     historicalQuote.setOpenValue(currency.getValue().get("open").asDouble());
-                    dataPoint.getHistoricalQuote().add(historicalQuote);
+                    dataPoint.getHistoricalQuotes().add(historicalQuote);
                 }
                 dataPointList.add(dataPoint);
             } catch (IllegalDatePatternException e) {

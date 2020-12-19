@@ -7,13 +7,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 /**
- * La classe astratta <b>WebClient</b> rappresenta un generico REST client con
- * metodi per effettuare chiamate ad un endpoint definito. Questa classe è
- * estesa da <code>FxMarketClient</code>.
+ * La classe astratta <code>WebClient</code> rappresenta un generico REST client
+ * che definisce i metodi per effettuare richieste ad un endpoint definito.
+ * Questa classe è estesa da <code>FxMarketClient</code>.
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.webclient.FxMarketClient
+ * @see it.michdev.restwebservice.service.DataService
  */
 public abstract class WebClient {
 
@@ -23,7 +24,7 @@ public abstract class WebClient {
     /**
      * Costruttore per la classe <code>WebClient</code>
      * 
-     * @param endpoint endpoint a cui effettuare le chiamate HTTP REST.
+     * @param endpoint endpoint a cui effettuare le richieste HTTP
      */
     public WebClient(String endpoint) {
         this.endpoint = endpoint;
@@ -31,12 +32,12 @@ public abstract class WebClient {
     }
 
     /**
-     * Effettua una chiamata all'endpoint definito tramite <code>URI</code> passata
-     * come argomento e scarica i dati ottenuti come oggetto
-     * <code>HttpResponse</code>.
+     * Effettua una chiamata all'endpoint definito utilizzando l'oggetto
+     * <code>URI</code>, passato come argomento, e scarica i dati ottenuti come
+     * oggetto <code>HttpResponse</code>.
      * 
      * @param requestUri <code>URI</code> dell'endpoint
-     * @return oggetto <code>HttpResponse</code> contenente i dati ottenuti.
+     * @return <code>HttpResponse</code> contenente i dati ottenuti.
      */
     protected HttpResponse<String> downloadData(URI requestUri) {
         HttpRequest httpRequest = HttpRequest.newBuilder(requestUri).build();
@@ -52,9 +53,10 @@ public abstract class WebClient {
 
     /**
      * Metodo astratto, implementato nelle sottoclassi di <code>WebClient</code>.
-     * Costruisce un <code>URI</code> ed ottiene i dati della chiamata effettuata.
+     * Costruisce un <code>URI</code> ed ottiene i dati della richiesta HTTP
+     * effettuata.
      * 
-     * @return oggetto <code>HttpResponse</code> contenente i dati ottenuti.
+     * @return <code>HttpResponse</code> contenente i dati ottenuti.
      */
     public abstract HttpResponse<String> requestData();
 }
