@@ -140,10 +140,7 @@ Tramite questa rotta è possibile ottenere una serie storica delle quotazioni di
 *Per il parametro <code>quote</code> è possibile aggiungere più valori seperati da una virgola, per esempio: CAD,EUR,USD*
 
 >Il body richiesto deve rispettare la seguente struttura: 
-``{
-    "start_date" : "yyyy-MM-dd",
-    "end_date" : "yyyy-MM-dd"
-}
+<code>{ "start_date" : "yyyy-MM-dd", "end_date" : "yyyy-MM-dd"}</code>.
 
 #### Endpoints per le statistiche
 Di seguito sono elencati i possibili endpoints per ottenere le statistiche sulle quotazioni. I valori da inserire nei parametri <code>base</code> e <code>quote</code>, sono i codici ISO 4217 delle valute disponibili.
