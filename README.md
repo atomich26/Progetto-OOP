@@ -17,6 +17,7 @@ Currency Trend API è un servizio web di <code>REST API</code> che offre informa
 
 **La fonte dei dati distribuiti è https://fxmarketapi.com/**.
 
+Di seguito è possibile leggere la consegna:
 > Si gestisca il banner(schermo) di una banca, creato apposta per tenere traccia dei valori delle valute più importanti. Il banner deve aggiornarsi ogni 10 minuti, visualizzando vecchio valore e nuovo valore della valuta, la valuta che ha perso più valore e la valuta che ha guadagnato più valore. Inoltre lo schermo è touch, quindi l'utente della banca potrà clickare su una valuta e visualizzare diverse infomazioni riguardanti la valuta scelta.
 Elaborare statistiche sull'andamento del valore di una valuta, media e varianza delle stesse. Statistiche sulle valute che hanno perso/guadagnato più valore nelle ultime settimane e nell'ultimo mese.
  
@@ -27,14 +28,14 @@ Per realizzare il servizio di API, viene utilizzato il framework per Java **Spri
 Il software è stato scritto completamente in Java, utilizzando come editor di sviluppo Visual Studio Code fornito di estensione **Java for VSCode** e come software per il versioning del codice, **Git**.
 
 ### Modellazione dati e OOP<a name="modellazione"><a/>
-La progettazione del software ha previsto dei punti chiave su cui basare l'intera modellazione dei dati e del codice scritto; in particolare, oltre ad avere tenuto una rigida attenzione all'uso delle risorse fisiche e alla velocità di esecuzione(fondamentali per un web service), il punto chiave principale è stato l'utilizzo di quasi tutti i concetti della programmazione ad oggetti e all'ottimizzazione delle strutture dati, nonché il vero obiettivo del progetto.
+La progettazione del software ha previsto dei punti chiave su cui basare l'intera modellazione dei dati e del codice scritto; in particolare, oltre ad avere tenuto una rigida attenzione all'uso delle risorse fisiche e alla velocità di esecuzione(fondamentali per un REST web service), il punto chiave principale è stato l'utilizzo di quasi tutti i concetti della programmazione ad oggetti e all'ottimizzazione delle strutture dati, nonché il vero obiettivo del progetto.
 
-La modellazione dei dati, quindi, si è basata sull'aspetto concettuale che essi rappresentano. Dovendo gestire dati che hanno una relazione con coppie di valute, si è pensato di creare una classe<code>CurrencyPair</code> per generalizzare questa relazione che successivamente verrà estesa da altre sottoclassi utilizzate per strutture dati di vario genere come le quotazioni in tempo reale<code>LiveQuote</code>, le quotazioni storiche<code>HistoricalQuote</code> e i <code>Report</code> statistici delle una coppia di valute. A causa di questa differenza ma allo stesso somiglianza tra i diversi tipi di dato trattati dal software, è stata colta l'occasione per la creazione di classi e interfacce con tipi generici <code><T></code> per definire alcuni comportamenti generali dei dati trattati, utili per il loro ordinamento, confronto ed elaborazione, dimostrando la flessibilità e i vantaggi della programmazione ad oggetti.
+La modellazione dei dati, quindi, si è basata sull'aspetto concettuale che essi rappresentano. Dovendo gestire dati che hanno una relazione con coppie di valute, si è pensato di creare una classe<code>CurrencyPair</code> per generalizzare questa relazione che successivamente viene estesa da altre sottoclassi utilizzate per strutture dati di vario genere come le quotazioni in tempo reale<code>LiveQuote</code>, le quotazioni storiche<code>HistoricalQuote</code> e i <code>Report</code> statistici delle coppia di valute. A causa di questa differenza ma allo stesso tempo somiglianza tra i diversi tipi di dato trattati dal software, è stata colta l'occasione per la creazione di classi e interfacce con tipi generici <code>T</code> per definire alcuni comportamenti generali dei dati trattati, utili per il loro ordinamento, confronto ed elaborazione, dimostrando la flessibilità e i vantaggi della programmazione ad oggetti.
 
 ### Diagrammi UML <a name="uml">
 
 #### Diagramma dei casi d'uso
-<img src="/uml/UseCaseDiagram.png" alt="useCaseDiagram" width="100%"></img>
+<img src="/uml/useCaseDiagram.png" alt="useCaseDiagram" width="100%"></img>
 
 #### Diagramma di sequenza per ottenere le quotazioni aggiornati
 Il diagramma seguente fa riferimento alle chiamate <code> **GET** /live/currency</code>, <code> **GET** /live/quotes</code>  per ottenere serie di quotazioni aggiornate ogni 10 minuti, eventualmente filtrate secondo oppurtuni parametri, con dati statistici.  Per saperne di più, vai a <a href="#endpoints">endpoints</a>.
