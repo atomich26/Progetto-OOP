@@ -1,0 +1,11 @@
+{
+    "currencies":{
+        "AUD" : "Australian Dollar",
+        "CAD" : "Canadian Dollar",
+        "CHF" : "Swiss Franc",
+        "EUR" : "Euro",
+        "GBP" : "Great Britain Pound",
+        "SEK" : "Swedish krona",
+        "USD" : "United States Dollar"
+    }
+}
