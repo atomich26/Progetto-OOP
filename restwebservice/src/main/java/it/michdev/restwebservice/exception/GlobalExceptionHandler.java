@@ -92,7 +92,7 @@ public final class GlobalExceptionHandler {
      * @return <code>ResponseEntity</code> di <code>ErrorResponse</code>
      * @see it.michdev.restwebservice.exception.InvalidStatsFieldException
      */
-    @ExceptionHandler(DataNotFoundException.class)
+    @ExceptionHandler(InvalidStatsFieldException.class)
     public ResponseEntity<ErrorResponse> handleInvalidStatsFieldException(Exception e) {
         return new ResponseEntity<>(new ErrorResponse("InvalidStatsFieldException", e.getMessage()),
                 HttpStatus.BAD_REQUEST);
