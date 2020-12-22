@@ -1,0 +1,27 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101-hotspot\bin\javadoc.exe" @options @packages"
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\allclasses-index.html = 1608676384959
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\allclasses.html = 1608676385036
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\allpackages-index.html = 1608676384983
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\constant-values.html = 1608676383626
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\deprecated-list.html = 1608676385008
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\element-list = 1608676383028
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\help-doc.html = 1608676385084
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\index-all.html = 1608676384923
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\index.html = 1608676385049
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\member-search-index.js = 1608676384895
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\member-search-index.zip = 1608676384914
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\options = 1608676379124
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\overview-summary.html = 1608676385073
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\overview-tree.html = 1608676384815
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\package-search-index.js = 1608676384864
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\package-search-index.zip = 1608676384877
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\packages = 1608676379131
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\script.js = 1608676385118
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\search.js = 1608676385121
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\serialized-form.html = 1608676383649
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\stylesheet.css = 1608676385112
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\type-search-index.js = 1608676384885
+C:\Users\miche\Documents\Progetto-OOP\Progetto-OOP\restwebservice\target\site\apidocs\type-search-index.zip = 1608676384888
