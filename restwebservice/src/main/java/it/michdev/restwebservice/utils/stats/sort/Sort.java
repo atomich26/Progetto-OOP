@@ -39,7 +39,7 @@ public class Sort<T extends ISortable> {
      */
     private void sortList() {
         // Ordina la lista
-        this.sortedDataList.sort((c1, c2) -> c1.getChangeValue().compareTo(c2.getChangeValue()));
+        this.sortedDataList.sort((c1, c2) -> c1.getPctChangeValue().compareTo(c2.getPctChangeValue()));
 
         // trova la valuta peggiore
         T worstCurrency = sortedDataList.get(0);
