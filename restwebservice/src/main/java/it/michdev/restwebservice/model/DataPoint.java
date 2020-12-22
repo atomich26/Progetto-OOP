@@ -10,7 +10,7 @@ import it.michdev.restwebservice.utils.parser.DateParser;
  * La classe <code>DataPoint</code> rappresenta un modello contenente una serie
  * di valori storici relativi a quotazioni tra due valute.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  */
 public class DataPoint {

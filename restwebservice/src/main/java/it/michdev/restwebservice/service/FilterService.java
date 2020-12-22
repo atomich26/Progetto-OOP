@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.filter.CurrencyFilter;
  * chiamate <code>HTTP</code> restituendo i parametri necessari per selezionare
  * i dati, dopo essere stati controllati.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.service.DataService
  * @see it.michdev.restwebservice.service.StatisticsService

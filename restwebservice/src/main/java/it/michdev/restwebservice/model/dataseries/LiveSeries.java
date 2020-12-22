@@ -16,7 +16,7 @@ import it.michdev.restwebservice.utils.stats.sort.Sort;
  * valori delle quotazioni aggiornate che possono essere associati ad una valuta
  * o meno, con relative statistiche.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.model.dataseries.DataSeries
  */

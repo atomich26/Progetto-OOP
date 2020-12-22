@@ -2,7 +2,7 @@
   <br><br>
   <img src="/Assets/currency_logo.svg" alt="Currency_logo" width="260"></img>
   <br>
-  <h4>Versione attuale: 1.1.0</h4><br>
+  <h4>Versione attuale: 1.1.2</h4><br>
   <p>
     <a href="#intro">Introduzione</a>&nbsp•
     <a href="#realizzazione">Realizzazione</a>&nbsp•

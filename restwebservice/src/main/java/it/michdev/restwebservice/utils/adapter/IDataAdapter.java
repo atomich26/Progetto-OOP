@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * converite dati grezzi in oggetti di tipo <code>T</code> specificato come
  * parametro, per migliorare la gestione e la loro manipolazione.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.adapter.LiveDataAdapter
  * @see it.michdev.restwebservice.utils.adapter.HistoricalDataAdapter

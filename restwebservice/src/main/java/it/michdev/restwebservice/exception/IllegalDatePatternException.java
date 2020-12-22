@@ -7,7 +7,7 @@ package it.michdev.restwebservice.exception;
  * <b>GlobalExceptionHandler</b>. Per visualizzare la struttura corretta delle
  * date consulta la documentazione.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */

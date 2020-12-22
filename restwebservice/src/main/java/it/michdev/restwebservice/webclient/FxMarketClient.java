@@ -13,7 +13,7 @@ import it.michdev.restwebservice.utils.parser.DateParser;
  * Rappresenta un HTTP REST client del servizio offerto da <i>fxmarketsapi.com</i> ed
  * implementa i metodi per ottenere i dati necessari.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.webclient.WebClient
  */

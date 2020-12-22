@@ -11,7 +11,7 @@ import it.michdev.restwebservice.service.DataService;
  * a intervalli per mezzo di annotazioni Spring <code>PostContruct</code> o
  * <code>Scheduled</code>.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.core.AssetsManager
  */

@@ -30,7 +30,7 @@ import it.michdev.restwebservice.utils.time.Period;
  * Invia un oggetto <code>ResponseEntity</code> con i dati richiesti in formato
  * <code>Json</code> e il codice di stato <code>HTTP</code>.
  * 
- * @version 1.1.0;
+ * @version 1.1.2;
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.RestWebServiceApplication
  * @see it.michdev.restwebservice.service.DataService

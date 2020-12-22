@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.time.Period;
  * La classe <code>TimeSeries</code> rappresenta una serie storica di valori di
  * quotazioni associato ad un determinato periodo di tempo.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.model.DataPoint
  */

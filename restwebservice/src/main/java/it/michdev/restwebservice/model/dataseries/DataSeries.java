@@ -11,7 +11,7 @@ import it.michdev.restwebservice.core.AssetsManager;
  * specifici dati con relative statistiche tra cui, oggetti
  * <code>LiveQuote</code>, <code>HistoricalQuote</code> o <code>Report</code>.
  *
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.model.dataseries.LiveSeries
  * @see it.michdev.restwebservice.model.dataseries.TimeSeries

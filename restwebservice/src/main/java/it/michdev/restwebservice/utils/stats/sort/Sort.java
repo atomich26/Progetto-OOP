@@ -11,7 +11,7 @@ import it.michdev.restwebservice.model.Report;
  * restituendo un report sulle coppie di valute che rispettivamente hanno
  * guadagnato/perso di più.
  * 
- * @version 1.1.0
+ * @version 1.1.2
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.stats.sort.ISortable
  */
