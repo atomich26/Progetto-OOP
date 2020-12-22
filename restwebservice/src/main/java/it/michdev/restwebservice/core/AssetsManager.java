@@ -1,9 +1,11 @@
 package it.michdev.restwebservice.core;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
-import org.springframework.util.ResourceUtils;
 import it.michdev.restwebservice.model.CurrenciesList;
 import it.michdev.restwebservice.utils.parser.JsonParser;
 
@@ -19,6 +21,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
 @Component
 public final class AssetsManager {
 
+    private static Resource resource;
     private static String accessKey;
     private static JsonNode metadata;
     private static CurrenciesList currenciesList;
@@ -29,11 +32,10 @@ public final class AssetsManager {
      */
     public static void initAssets() {
         try {
-            accessKey = JsonParser.readNode(ResourceUtils.getFile("classpath:config.json")).get("access_key").asText();
-            metadata = JsonParser.readNode(ResourceUtils.getFile("classpath:metadata.json"));
-            currenciesList = JsonParser.deserialize(ResourceUtils.getFile("classpath:currencies.json"),
-                    CurrenciesList.class);
-        } catch (FileNotFoundException e) {
+            accessKey = JsonParser.readNode(readResourcesFile("config.json")).get("access_key").asText();
+            metadata = JsonParser.readNode(readResourcesFile("metadata.json"));
+            currenciesList = JsonParser.deserialize(readResourcesFile("currencies.json"),CurrenciesList.class);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -66,5 +68,28 @@ public final class AssetsManager {
      */
     public static CurrenciesList getCurrenciesList() {
         return currenciesList;
+    }
+
+    /**
+     * Legge i file di risorse utili per l'esecuzione del software.
+     * @param path percorso del file da leggere
+     * @return stringa del contenuto del file
+     */
+    private static String readResourcesFile(String path) {
+        try {
+            String fileContent = "", line;
+            InputStreamReader inputStreamReader = new InputStreamReader(AssetsManager.class.getClassLoader().getResourceAsStream(path));
+            BufferedReader buffer = new BufferedReader(inputStreamReader);
+
+            while ((line = buffer.readLine()) != null) {
+                fileContent += line;
+            }
+            buffer.close();
+            return fileContent;
+              
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
