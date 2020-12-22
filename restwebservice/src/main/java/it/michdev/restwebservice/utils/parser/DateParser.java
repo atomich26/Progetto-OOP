@@ -9,7 +9,7 @@ import it.michdev.restwebservice.exception.IllegalDatePatternException;
  * La classe <code>DateParser</code> implementa metodi per convertire stringhe di date
  * in oggetti <code>Calendar</code> e viceversa.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.parser.DecimalParser
  * @see it.michdev.restwebservice.utils.parser.JsonParser

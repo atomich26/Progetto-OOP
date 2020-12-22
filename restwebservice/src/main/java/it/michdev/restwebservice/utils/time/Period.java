@@ -6,7 +6,7 @@ import java.util.Calendar;
  * La classe <code>Period</code> rappresenta un periodo storico, compreso tra due
  * date ben distinte. Implementa l'interfaccia <code>ITime</code>.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.time.ITime
  */

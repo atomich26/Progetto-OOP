@@ -6,7 +6,7 @@ package it.michdev.restwebservice.exception;
  * storica non esiste. L'eccezione è gestita dalla classe
  * <b>GlobalExceptionHandler</b>.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.exception.GlobalExceptionHandler
  */

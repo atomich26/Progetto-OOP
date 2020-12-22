@@ -13,7 +13,7 @@ import it.michdev.restwebservice.utils.time.Period;
  * <code>IFilter</code>. Verifica la validità dei parametri inseriti dall'utente
  * e li restituisce per filtrare i dati in base al periodo.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.filter.IFilter
  * @see it.michdev.restwebservice.utils.filter.CurrencyFilter

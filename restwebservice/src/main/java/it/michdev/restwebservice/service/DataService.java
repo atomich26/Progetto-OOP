@@ -27,7 +27,7 @@ import it.michdev.restwebservice.webclient.FxMarketClient;
  * per i valori aggiornati, o per inoltrare richieste <code>HTTP</code> alle
  * fxmarketapi.com.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.service.FilterService
  * @see it.michdev.restwebservice.service.StatisticsService

@@ -16,7 +16,7 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
  * grezzi, scaricati dal <code>webclient</code>. Implementa l'interfaccia
  * <code>IDataAdapter</code>.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.adapter.IDataAdapter
  * @see it.michdev.restwebservice.utils.adapter.HistoricalDataAdapter

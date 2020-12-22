@@ -6,7 +6,7 @@ package it.michdev.restwebservice.utils.filter;
  * volta i parametri che vengono poi applicati dal FilterService per selezionare
  * i dati.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.utils.filter.CurrencyFilter
  * @see it.michdev.restwebservice.utils.filter.PeriodFilter

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import it.michdev.restwebservice.model.CurrenciesList;
 import it.michdev.restwebservice.utils.parser.JsonParser;
@@ -14,14 +13,13 @@ import it.michdev.restwebservice.utils.parser.JsonParser;
  * Spring. Questa classe s'interfaccia con i dati contenuti nei file di risorse,
  * quali: <i>currencies.json</i>, <i>config.json</i>, <i>metadata.json</i>.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.core.TaskManager
  */
 @Component
 public final class AssetsManager {
 
-    private static Resource resource;
     private static String accessKey;
     private static JsonNode metadata;
     private static CurrenciesList currenciesList;

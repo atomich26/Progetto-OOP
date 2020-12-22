@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.stats.sort.ISortable;
  * calcolati sui valori delle quotazioni(periodiche e non) di una specifica
  * coppia di valute.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.model.CurrencyPair
  */

@@ -12,7 +12,7 @@ import it.michdev.restwebservice.utils.stats.sort.ISortable;
  * due valute. Contiene il valore aggiornato, quello precendente, differenza e
  * variazione percentuale dei valori.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.model.CurrencyPair
  */

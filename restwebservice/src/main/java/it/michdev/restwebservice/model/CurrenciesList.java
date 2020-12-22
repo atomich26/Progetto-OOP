@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * eventuali casi crea una stringa di coppie di valute usate per effettuare
  * chiamate all'endpoint fxmarketapi.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.core.AssetsManager
  */

@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * <code>HistoricalQuote</code>,<code>LiveQuote</code> e <code>Report</code>
  * estendono CurrencyPair.
  * 
- * @version 1.1.2
+ * @version 1.1.3
  * @author Michele Bevilacqua
  * @see it.michdev.restwebservice.model.LiveQuote
  * @see it.michdev.restwebservice.model.HistoricalQuote
