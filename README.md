@@ -17,7 +17,7 @@ Currency Trend API è un servizio web di <code>REST API</code> che offre informa
 
 **La fonte dei dati distribuiti è https://fxmarketapi.com/**.
 
-> ATTENZIONE: Il software, realizzato a scopo didattico, non riceve più aggiornamenti da parte dell'autore. Pertanto il software non sarà esente da bug o malfunzionamenti.
+> ATTENZIONE: Il software, realizzato a scopo didattico, non riceve più aggiornamenti da parte dell'autore pertanto non sarà esente da bug o malfunzionamenti.
 
 Di seguito è possibile leggere la consegna:
 > Si gestisca il banner(schermo) di una banca, creato apposta per tenere traccia dei valori delle valute più importanti. Il banner deve aggiornarsi ogni 10 minuti, visualizzando vecchio valore e nuovo valore della valuta, la valuta che ha perso più valore e la valuta che ha guadagnato più valore. Inoltre lo schermo è touch, quindi l'utente della banca potrà clickare su una valuta e visualizzare diverse infomazioni riguardanti la valuta scelta.
