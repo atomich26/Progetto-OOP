@@ -7,7 +7,7 @@
     <a href="#intro">Introduzione</a>&nbsp•
     <a href="#realizzazione">Realizzazione</a>&nbsp•
     <a href="#guida">Guida per l'uso</a>&nbsp•
-    <a href="https://michdev7.github.io/Progetto-OOP/">Javadoc</a>&nbsp•
+    <a href="https://atomich26.github.io/Progetto-OOP/">Javadoc</a>&nbsp•
     <a href="#riconoscimenti">Riconoscimenti</a> 
   </p>
 </div><br><br>
